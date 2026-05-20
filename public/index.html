@@ -547,23 +547,25 @@ html.dark .dark-toggle:hover{background:rgba(255,255,255,.15)}
 }
 
 /* PORTFOLIO */
-.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.portfolio-card{overflow:hidden;padding:0}
+.portfolio-grid{max-width:620px;margin-inline:auto}
+.portfolio-card{overflow:hidden;padding:0;display:block}
 .portfolio-img{
-  height:175px;
-  background:linear-gradient(135deg,var(--c1),var(--c2));
+  height:320px;
+  background:linear-gradient(135deg,#059669,#6EE7B7);
+  background-size:cover;background-position:top center;
   position:relative;
 }
-.portfolio-img::before{
-  content:'';position:absolute;inset:0;
-  background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
-  background-size:24px 24px;
-}
-.portfolio-info{padding:1.35rem 1.5rem}
+.portfolio-info{padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.portfolio-info-left{}
 .portfolio-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--a)}
-.portfolio-info h3{font-size:1.1rem;font-weight:700;letter-spacing:-.035em;margin:.35rem 0 .3rem}
+.portfolio-info h3{font-size:1.15rem;font-weight:700;letter-spacing:-.035em;margin:.3rem 0 .25rem}
 .portfolio-info p{font-size:.85rem;color:var(--ink3);line-height:1.5}
-@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr}}
+.portfolio-link{
+  font-size:.8rem;font-weight:600;color:var(--a);text-decoration:none;
+  white-space:nowrap;flex-shrink:0;
+  display:inline-flex;align-items:center;gap:.3rem;
+}
+.portfolio-link::after{content:'→'}
 
 /* CONTACT FORM */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
@@ -792,38 +794,17 @@ html.dark .contact-note{color:var(--ink4)}
       <p>Cada proyecto es único. Aquí algunos de los sitios que hemos construido.</p>
     </div>
     <div class="portfolio-grid">
-      <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1" style="text-decoration:none">
-        <div class="portfolio-img" style="--c1:#059669;--c2:#6EE7B7"></div>
+      <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1">
+        <div class="portfolio-img" style="background-image:url('https://image.thum.io/get/width/640/crop/640/noanimate/https://umanaliving.com')"></div>
         <div class="portfolio-info">
-          <span class="portfolio-tag">Hogar &amp; Estilo de vida</span>
-          <h3>Umana Living</h3>
-          <p>Sitio web a medida para marca de lifestyle</p>
+          <div class="portfolio-info-left">
+            <span class="portfolio-tag">Estilo de vida</span>
+            <h3>Umana Living</h3>
+            <p>Sitio web a medida para marca de lifestyle</p>
+          </div>
+          <span class="portfolio-link">Ver sitio</span>
         </div>
       </a>
-      <article class="portfolio-card glass glass-hover reveal reveal-d3">
-        <div class="portfolio-img" style="--c1:#4F46E5;--c2:#818CF8"></div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Salud</span>
-          <h3>Clínica Dental Nova</h3>
-          <p>Landing de conversión con cita en línea</p>
-        </div>
-      </article>
-      <article class="portfolio-card glass glass-hover reveal reveal-d2">
-        <div class="portfolio-img" style="--c1:#0891B2;--c2:#06B6D4"></div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Consultoría</span>
-          <h3>Astra Legal</h3>
-          <p>Sitio corporativo con blog y contacto</p>
-        </div>
-      </article>
-      <article class="portfolio-card glass glass-hover reveal reveal-d3">
-        <div class="portfolio-img" style="--c1:#7C3AED;--c2:#C4B5FD"></div>
-        <div class="portfolio-info">
-          <span class="portfolio-tag">Gastronomía</span>
-          <h3>Café Bruma</h3>
-          <p>Menú digital y reservas por WhatsApp</p>
-        </div>
-      </article>
     </div>
   </div>
 </section>

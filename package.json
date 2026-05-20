@@ -1,0 +1,14 @@
+{
+  "name": "aurevo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de Aurevo — diseño y desarrollo web",
+  "scripts": {
+    "dev": "serve . -l 3000",
+    "start": "npm run dev",
+    "preview": "serve . -l 4173"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

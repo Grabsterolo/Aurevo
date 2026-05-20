@@ -4,9 +4,25 @@ Landing page del estudio **Aurevo** — diseño y desarrollo web orientado a con
 
 **Producción (Cloudflare Pages):** https://aurevo-3nr.pages.dev
 
-## Requisitos
+## Estructura del repositorio
 
-- [Node.js](https://nodejs.org/) 18+ (opcional, solo para servidor local)
+```
+├── public/                 # Sitio web (lo que se publica)
+│   ├── index.html          # Página principal
+│   ├── 404.html
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── _redirects          # Reglas Cloudflare/Netlify
+│   ├── _headers            # Cabeceras HTTP
+│   └── assets/
+│       └── favicon.svg
+├── docs/
+│   └── CLOUDFLARE.md       # Guía de despliegue
+├── .github/workflows/      # CI (Cloudflare Pages)
+├── wrangler.toml           # Config Cloudflare
+├── package.json            # Scripts de desarrollo local
+└── README.md
+```
 
 ## Desarrollo local
 
@@ -15,59 +31,31 @@ npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+Abre [http://localhost:3000](http://localhost:3000). El servidor sirve la carpeta `public/`.
 
-## Personalizar antes de publicar
+## Personalizar el sitio
 
-Edita `index.html` y actualiza:
+Edita `public/index.html`:
 
 | Elemento | Ubicación aproximada |
 |----------|----------------------|
-| Enlace de Calendly | `#contact` → `https://calendly.com/...` |
-| WhatsApp | `#contact` → `https://wa.me/...` |
-| Email | footer → `hello@aurevo.studio` |
-| Dominio en SEO | Tras conectar dominio propio, ver [CLOUDFLARE.md](./CLOUDFLARE.md) |
+| Enlace de Calendly | `#contact` |
+| WhatsApp | `#contact` |
+| Email | footer |
+| SEO / dominio | `<head>` y `public/robots.txt`, `public/sitemap.xml` |
 
-## Despliegue en Cloudflare Pages
-
-El sitio está pensado para **Cloudflare Pages** (HTML estático, sin build real).
-
-Guía completa (reconectar Git, secrets de GitHub Actions, dominio propio): **[CLOUDFLARE.md](./CLOUDFLARE.md)**
-
-Resumen rápido:
+## Despliegue (Cloudflare Pages)
 
 | Ajuste en Cloudflare | Valor |
 |----------------------|--------|
 | Framework preset | None |
 | Build command | *(vacío)* |
-| Build output directory | `.` |
+| **Build output directory** | **`public`** |
 | Rama | `main` |
 
-Archivos clave: `wrangler.toml`, `_redirects`, `_headers`, workflow `.github/workflows/cloudflare-pages.yml`.
+Guía detallada: **[docs/CLOUDFLARE.md](./docs/CLOUDFLARE.md)**
 
-### Si Git aparece “disconnected” en Cloudflare
-
-1. **Reconectar** en Cloudflare → Settings → Builds, **o**
-2. Usar el **workflow de GitHub Actions** con `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` (instrucciones en `CLOUDFLARE.md`).
-
-## Otros hosts
-
-También compatibles: Netlify (`netlify.toml`), Vercel (`vercel.json`).
-
-## Estructura
-
-```
-├── index.html
-├── 404.html
-├── favicon.svg
-├── wrangler.toml       # Cloudflare Pages
-├── _redirects          # 404 en Cloudflare
-├── _headers            # Seguridad y caché
-├── robots.txt
-├── sitemap.xml
-├── CLOUDFLARE.md       # Guía de despliegue
-└── .github/workflows/cloudflare-pages.yml
-```
+También compatible con Netlify (`netlify.toml`) y Vercel (`vercel.json`).
 
 ## Licencia
 

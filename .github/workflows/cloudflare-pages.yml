@@ -28,6 +28,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: aurevo-3nr
-          directory: .
+          directory: public
           branch: main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

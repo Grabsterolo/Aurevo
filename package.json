@@ -4,9 +4,9 @@
   "private": true,
   "description": "Sitio web de Aurevo — diseño y desarrollo web",
   "scripts": {
-    "dev": "serve . -l 3000",
+    "dev": "serve public -l 3000",
     "start": "npm run dev",
-    "preview": "serve . -l 4173",
+    "preview": "serve public -l 4173",
     "build": "node -e \"console.log('Sitio estático: sin paso de build')\""
   },
   "devDependencies": {

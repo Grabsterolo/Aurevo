@@ -845,6 +845,19 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 const words=['real','crecer','visible','competir'];
 let wIdx=0;
 const wEl=document.getElementById('heroWord');
+
+// Lock width to widest word so surrounding text never reflows
+(function(){
+  const ghost=document.createElement('span');
+  ghost.className=wEl.className;
+  ghost.style.cssText='position:absolute;visibility:hidden;pointer-events:none;transition:none';
+  wEl.parentNode.insertBefore(ghost,wEl);
+  let maxW=0;
+  words.forEach(w=>{ghost.textContent=w;maxW=Math.max(maxW,ghost.offsetWidth);});
+  ghost.parentNode.removeChild(ghost);
+  wEl.style.minWidth=maxW+'px';
+  wEl.style.textAlign='center';
+})();
 function nextWord(){
   wEl.classList.add('exit');
   setTimeout(()=>{

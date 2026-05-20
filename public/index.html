@@ -453,6 +453,42 @@ footer{padding:2.5rem 0 2rem}
 @media(max-width:600px){
   .hero-btns,.cta-btns{flex-direction:column;align-items:stretch}
 }
+
+/* HERO WORD */
+.hero-word{
+  display:inline-block;
+  background:var(--grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  transition:opacity .28s var(--ease),transform .28s var(--ease);
+}
+.hero-word.exit{opacity:0;transform:translateY(-16px)}
+.hero-word.enter{opacity:0;transform:translateY(16px);transition:none}
+
+/* MARQUEE */
+.marquee-band{
+  overflow:hidden;padding:.85rem 0;
+  border-top:1px solid rgba(79,70,229,.1);
+  border-bottom:1px solid rgba(79,70,229,.1);
+  background:rgba(79,70,229,.04);
+  position:relative;z-index:1;
+}
+.marquee-track{
+  display:flex;align-items:center;
+  width:max-content;
+  animation:marquee-scroll 32s linear infinite;
+  user-select:none;
+}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{
+  font-size:.72rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink3);padding:0 1.4rem;white-space:nowrap;
+}
+.marquee-dot{color:var(--a);padding:0 .2rem !important}
+@keyframes marquee-scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 </style>
 </head>
 <body>
@@ -493,7 +529,7 @@ footer{padding:2.5rem 0 2rem}
 <section class="hero section">
   <div class="container">
     <div class="hero-card glass glass-hover reveal">
-      <h1>Un sitio web hace tu negocio real</h1>
+      <h1>Un sitio web hace tu negocio <span id="heroWord" class="hero-word">real</span></h1>
       <p class="hero-sub">Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.</p>
       <div class="hero-btns">
         <a href="#contacto" class="btn btn-dark">Cuéntanos tu proyecto</a>
@@ -517,6 +553,12 @@ footer{padding:2.5rem 0 2rem}
     </div>
   </div>
 </section>
+
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Diseño a medida</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Código limpio</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Velocidad</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">SEO básico</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Sin plantillas</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Propiedad tuya</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Sin suscripciones</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">A medida</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Diseño a medida</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Código limpio</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Velocidad</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">SEO básico</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Sin plantillas</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Propiedad tuya</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">Sin suscripciones</span><span class="marquee-item marquee-dot">·</span><span class="marquee-item">A medida</span><span class="marquee-item marquee-dot">·</span>
+  </div>
+</div>
 
 <section class="section section-gap" id="problema">
   <div class="container">
@@ -798,6 +840,41 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ROTATING WORD
+const words=['real','crecer','visible','competir'];
+let wIdx=0;
+const wEl=document.getElementById('heroWord');
+function nextWord(){
+  wEl.classList.add('exit');
+  setTimeout(()=>{
+    wIdx=(wIdx+1)%words.length;
+    wEl.textContent=words[wIdx];
+    wEl.classList.remove('exit');
+    wEl.classList.add('enter');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>wEl.classList.remove('enter')));
+  },280);
+}
+if(!reduceMotion)setInterval(nextWord,2800);
+
+// 3D TILT
+if(!reduceMotion){
+  document.querySelectorAll('.glass-hover').forEach(card=>{
+    card.addEventListener('mouseenter',()=>{
+      card.style.transition='box-shadow .35s cubic-bezier(.4,0,.2,1),border-color .35s';
+    });
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateX(${(-y*7).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transition='';
+      card.style.transform='';
+    });
+  });
+}
 </script>
 </body>
 </html>

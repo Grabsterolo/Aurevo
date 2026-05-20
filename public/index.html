@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://aurevo-3nr.pages.dev/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -27,8 +27,7 @@
   --a:#4F46E5;
   --b:#06B6D4;
   --grad:linear-gradient(135deg,#4F46E5,#06B6D4);
-  --display:'Source Serif 4',Georgia,serif;
-  --body:'Instrument Sans',system-ui,sans-serif;
+  --font:'Instrument Sans',system-ui,sans-serif;
   --max:1080px;
   --ease:cubic-bezier(.4,0,.2,1);
   --mx:50%;
@@ -39,7 +38,7 @@
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{
-  font-family:var(--body);
+  font-family:var(--font);
   color:var(--ink);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
@@ -106,9 +105,8 @@ img,svg{display:block;max-width:100%}
   content:'';width:6px;height:6px;border-radius:50%;background:var(--grad);
 }
 .section-head h2{
-  font-family:var(--display);
   font-size:clamp(1.85rem,4vw,2.75rem);
-  font-weight:600;line-height:1.12;letter-spacing:-.02em;
+  font-weight:700;line-height:1.1;letter-spacing:-.035em;
 }
 .section-head p{color:var(--ink3);margin-top:.85rem;font-size:1rem;line-height:1.7}
 
@@ -134,7 +132,7 @@ nav.scrolled .nav-shell{
   box-shadow:0 8px 32px rgba(10,10,10,.08),inset 0 1px 0 rgba(255,255,255,.9);
 }
 .logo{
-  font-weight:600;font-size:1.02rem;letter-spacing:-.02em;
+  font-weight:600;font-size:1.06rem;letter-spacing:-.04em;
   text-decoration:none;display:flex;align-items:center;gap:8px;
 }
 .nav-logo-dot{
@@ -163,10 +161,9 @@ nav.scrolled .nav-shell{
   text-align:center;
 }
 .hero h1{
-  font-family:var(--display);
   font-size:clamp(2.5rem,7vw,4.25rem);
-  font-weight:600;line-height:1.06;letter-spacing:-.03em;
-  max-width:14ch;margin:0 auto;
+  font-weight:700;line-height:1.05;letter-spacing:-.045em;
+  max-width:15ch;margin:0 auto;
 }
 .hero-sub{
   margin-top:1.25rem;font-size:1.05rem;color:var(--ink3);
@@ -186,8 +183,7 @@ nav.scrolled .nav-shell{
   border-radius:14px;
 }
 .trust-pill strong{
-  display:block;font-family:var(--display);
-  font-size:1.35rem;font-weight:600;letter-spacing:-.02em;
+  display:block;font-size:1.35rem;font-weight:700;letter-spacing:-.04em;
   margin-bottom:.2rem;
 }
 .trust-pill span{font-size:.78rem;color:var(--ink3);line-height:1.45}
@@ -195,7 +191,7 @@ nav.scrolled .nav-shell{
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
   padding:.78rem 1.45rem;border-radius:999px;font-size:.9rem;font-weight:600;
-  text-decoration:none;transition:all .22s var(--ease);font-family:var(--body);
+  text-decoration:none;transition:all .22s var(--ease);
   border:1px solid transparent;
 }
 .btn-dark{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -222,8 +218,8 @@ nav.scrolled .nav-shell{
   font-size:1.1rem;margin-bottom:1.1rem;
 }
 .problem-card h3{
-  font-family:var(--display);font-size:1.15rem;font-weight:600;
-  margin-bottom:.5rem;letter-spacing:-.01em;
+  font-size:1.15rem;font-weight:700;
+  margin-bottom:.5rem;letter-spacing:-.035em;
 }
 .problem-card p{font-size:.9rem;color:var(--ink3);line-height:1.65}
 
@@ -233,8 +229,8 @@ nav.scrolled .nav-shell{
 }
 .benefit{padding:1.5rem 1.35rem}
 .benefit h3{
-  font-family:var(--display);font-size:1.05rem;font-weight:600;
-  margin-bottom:.4rem;
+  font-size:1.05rem;font-weight:700;
+  margin-bottom:.4rem;letter-spacing:-.035em;
 }
 .benefit p{font-size:.86rem;color:var(--ink3);line-height:1.6}
 
@@ -242,14 +238,14 @@ nav.scrolled .nav-shell{
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .step-card{padding:1.75rem 1.5rem;position:relative;overflow:hidden}
 .step-num{
-  font-family:var(--display);font-size:3rem;font-weight:600;
-  line-height:1;letter-spacing:-.04em;
+  font-size:3rem;font-weight:700;
+  line-height:1;letter-spacing:-.05em;
   background:var(--grad);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   opacity:.35;margin-bottom:1rem;
 }
 .step-card h3{
-  font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:.45rem;
+  font-size:1.15rem;font-weight:700;margin-bottom:.45rem;letter-spacing:-.035em;
 }
 .step-card p{font-size:.9rem;color:var(--ink3);line-height:1.65}
 
@@ -274,8 +270,8 @@ nav.scrolled .nav-shell{
   color:var(--a);margin-bottom:.45rem;
 }
 .service h3{
-  font-family:var(--display);font-size:1.4rem;font-weight:600;
-  letter-spacing:-.02em;margin-bottom:.45rem;
+  font-size:1.4rem;font-weight:700;
+  letter-spacing:-.04em;margin-bottom:.45rem;
 }
 .service-desc{font-size:.88rem;color:var(--ink3);margin-bottom:1.25rem;line-height:1.65}
 .service ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem;flex:1}
@@ -294,12 +290,12 @@ nav.scrolled .nav-shell{
 .faq-item:last-child{border-bottom:none}
 .faq-q{
   width:100%;padding:1.2rem 0;text-align:left;background:none;border:none;
-  font-family:var(--display);font-size:1.05rem;font-weight:600;cursor:pointer;
+  font-size:1.05rem;font-weight:700;letter-spacing:-.035em;cursor:pointer;
   display:flex;justify-content:space-between;align-items:flex-start;gap:1.25rem;
   color:var(--ink);line-height:1.4;
 }
 .faq-q::after{
-  content:'+';font-family:var(--body);font-size:1.25rem;font-weight:400;
+  content:'+';font-size:1.25rem;font-weight:400;
   color:var(--ink3);flex-shrink:0;transition:transform .25s;
 }
 .faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--a)}
@@ -313,9 +309,8 @@ nav.scrolled .nav-shell{
   text-align:center;
 }
 .cta-card h2{
-  font-family:var(--display);
   font-size:clamp(2rem,5vw,3rem);
-  font-weight:600;letter-spacing:-.03em;line-height:1.1;
+  font-weight:700;letter-spacing:-.045em;line-height:1.08;
   max-width:16ch;margin:0 auto;
 }
 .cta-card.glass-dark h2{color:#fff}
@@ -355,7 +350,7 @@ footer{padding:2.5rem 0 2rem}
   flex-direction:column;padding:5.5rem 2rem 2rem;gap:1rem;
 }
 .mob.open{display:flex}
-.mob a{font-family:var(--display);font-size:1.6rem;font-weight:600;text-decoration:none}
+.mob a{font-size:1.6rem;font-weight:700;letter-spacing:-.04em;text-decoration:none}
 .mob-close{
   position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;
   font-size:1.5rem;cursor:pointer;color:var(--ink3);

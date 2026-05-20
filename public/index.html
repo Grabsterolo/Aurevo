@@ -151,8 +151,21 @@ nav.scrolled .nav-shell{
   transition:transform .2s,box-shadow .2s;
 }
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(10,10,10,.18)}
-.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:.25rem}
-.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+.nav-toggle{
+  display:none;width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,.5);border:1px solid rgba(10,10,10,.08);
+  cursor:pointer;padding:0;flex-shrink:0;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  transition:background .2s,transform .2s;
+}
+.nav-toggle:hover{background:rgba(255,255,255,.85)}
+.nav-toggle span{
+  display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;
+  transition:transform .3s var(--ease),opacity .25s,width .25s;
+}
+.nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.active span:nth-child(2){opacity:0;width:0}
+.nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* HERO */
 .hero{padding:clamp(6.5rem,14vw,9rem) 0 0}
@@ -375,26 +388,71 @@ footer{padding:2.5rem 0 2rem}
 .reveal-d2{transition-delay:.16s}
 .reveal-d3{transition-delay:.24s}
 
-/* MOBILE */
+/* MOBILE MENU */
 .mob{
-  display:none;position:fixed;inset:0;z-index:200;
-  background:rgba(236,236,234,.95);
-  backdrop-filter:blur(24px);
-  flex-direction:column;padding:5.5rem 2rem 2rem;gap:1rem;
+  position:fixed;inset:0;z-index:200;
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:5.5rem 1.25rem 2rem;
+  pointer-events:none;visibility:hidden;
+  transition:visibility .35s;
 }
-.mob.open{display:flex}
-.mob a{font-size:1.6rem;font-weight:700;letter-spacing:-.04em;text-decoration:none}
+.mob.open{pointer-events:auto;visibility:visible}
+.mob-backdrop{
+  position:absolute;inset:0;
+  background:rgba(10,10,10,.2);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  opacity:0;transition:opacity .35s var(--ease);
+}
+.mob.open .mob-backdrop{opacity:1}
+.mob-panel{
+  position:relative;width:min(100%,380px);
+  padding:1.35rem;
+  display:flex;flex-direction:column;gap:1.25rem;
+  transform:translateY(-16px) scale(.97);
+  opacity:0;
+  transition:transform .4s var(--ease),opacity .4s var(--ease);
+  max-height:calc(100vh - 7rem);
+  overflow-y:auto;
+}
+.mob.open .mob-panel{transform:none;opacity:1}
+.mob-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:1rem;border-bottom:1px solid var(--border);
+}
 .mob-close{
-  position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;
-  font-size:1.5rem;cursor:pointer;color:var(--ink3);
+  width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(10,10,10,.06);color:var(--ink2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;line-height:1;
+  transition:background .2s,color .2s,transform .2s;
 }
+.mob-close:hover{background:rgba(10,10,10,.1);color:var(--ink)}
+.mob-nav{display:flex;flex-direction:column;gap:.35rem}
+.mob-nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.95rem 1.1rem;border-radius:14px;
+  font-size:1.15rem;font-weight:600;letter-spacing:-.03em;
+  text-decoration:none;color:var(--ink);
+  transition:background .2s,transform .2s;
+}
+.mob-nav a::after{
+  content:'→';font-size:.9rem;font-weight:500;color:var(--ink4);
+  transition:transform .2s,color .2s;
+}
+.mob-nav a:hover{
+  background:rgba(255,255,255,.55);
+  transform:translateX(2px);
+}
+.mob-nav a:hover::after{color:var(--a);transform:translateX(3px)}
+.mob-cta{width:100%;margin-top:.25rem}
 
 @media(max-width:900px){
   .hero-trust,.problems-grid,.benefits-grid,.steps-grid,.services-grid{
     grid-template-columns:1fr;
   }
   .nav-links,.nav-cta{display:none}
-  .nav-toggle{display:block}
+  .nav-toggle{display:flex}
   .service-badge{position:static;display:inline-block;margin-bottom:1rem}
 }
 @media(max-width:600px){
@@ -414,18 +472,27 @@ footer{padding:2.5rem 0 2rem}
       <li><a href="#faq">Preguntas</a></li>
     </ul>
     <a href="#contacto" class="nav-cta">Hablemos</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<div class="mob" id="mob">
-  <button class="mob-close" id="mobClose" aria-label="Cerrar">✕</button>
-  <a href="#servicios" data-close>Servicios</a>
-  <a href="#proceso" data-close>Proceso</a>
-  <a href="#faq" data-close>Preguntas</a>
-  <a href="#contacto" data-close>Contacto</a>
+<div class="mob" id="mob" aria-hidden="true">
+  <div class="mob-backdrop" id="mobBackdrop" aria-hidden="true"></div>
+  <div class="mob-panel glass">
+    <div class="mob-header">
+      <a href="#" class="logo" data-close><span class="nav-logo-dot" aria-hidden="true"></span>Aurevo</a>
+      <button class="mob-close" id="mobClose" type="button" aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="mob-nav" aria-label="Menú principal">
+      <a href="#servicios" data-close>Servicios</a>
+      <a href="#proceso" data-close>Proceso</a>
+      <a href="#faq" data-close>Preguntas</a>
+      <a href="#contacto" data-close>Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn btn-dark mob-cta" data-close>Hablemos</a>
+  </div>
 </div>
 
 <section class="hero section">
@@ -704,9 +771,22 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
 
 const mob=document.getElementById('mob');
-document.getElementById('navToggle').onclick=()=>mob.classList.add('open');
-document.getElementById('mobClose').onclick=()=>mob.classList.remove('open');
-document.querySelectorAll('[data-close]').forEach(a=>a.onclick=()=>mob.classList.remove('open'));
+const navToggle=document.getElementById('navToggle');
+function setMenu(open){
+  mob.classList.toggle('open',open);
+  navToggle.classList.toggle('active',open);
+  navToggle.setAttribute('aria-expanded',open);
+  navToggle.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
+  mob.setAttribute('aria-hidden',!open);
+  document.body.style.overflow=open?'hidden':'';
+}
+navToggle.onclick=()=>setMenu(!mob.classList.contains('open'));
+document.getElementById('mobClose').onclick=()=>setMenu(false);
+document.getElementById('mobBackdrop').onclick=()=>setMenu(false);
+document.querySelectorAll('[data-close]').forEach(a=>a.onclick=()=>setMenu(false));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&mob.classList.contains('open'))setMenu(false);
+});
 
 document.querySelectorAll('.faq-q').forEach(btn=>{
   btn.onclick=()=>{

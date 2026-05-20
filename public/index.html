@@ -323,6 +323,10 @@ nav.scrolled .nav-shell{
   font-size:1.4rem;font-weight:700;
   letter-spacing:-.04em;margin-bottom:.45rem;
 }
+.service-price{
+  font-size:1.45rem;font-weight:700;letter-spacing:-.04em;
+  color:var(--ink);margin:.1rem 0 .65rem;
+}
 .service-desc{font-size:.88rem;color:var(--ink3);margin-bottom:1.25rem;line-height:1.65}
 .service ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem;flex:1}
 .service li{
@@ -383,6 +387,7 @@ footer{padding:2.5rem 0 2rem}
 .footer-links{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;list-style:none}
 .footer-links a{font-size:.85rem;color:var(--ink2);text-decoration:none;font-weight:500}
 .footer-links a:hover{color:var(--ink)}
+.footer-location{font-size:.78rem;color:var(--ink4);margin-top:.5rem}
 .footer-copy{font-size:.78rem;color:var(--ink4);width:100%;padding-top:1.25rem;border-top:1px solid var(--border);margin-top:.5rem}
 
 /* REVEAL */
@@ -675,23 +680,23 @@ html.dark .contact-note{color:var(--ink4)}
       <h1>Un sitio web hace tu negocio <span id="heroWord" class="hero-word">real</span></h1>
       <p class="hero-sub">Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.</p>
       <div class="hero-btns">
-        <a href="#contacto" class="btn btn-dark">Cuéntanos tu proyecto</a>
+        <a href="#contacto" class="btn btn-dark">Quiero mi sitio web</a>
         <a href="#servicios" class="btn btn-line">Ver planes</a>
       </div>
       <p class="hero-note">Respuesta en menos de 24 horas</p>
     </div>
     <div class="hero-trust reveal reveal-d1">
       <div class="trust-pill glass glass-hover">
-        <strong data-count="100" data-suffix="%">100%</strong>
-        <span>Código a medida, sin plantillas</span>
+        <strong>1–3 sem.</strong>
+        <span>De brief a sitio publicado</span>
       </div>
       <div class="trust-pill glass glass-hover">
-        <strong data-count="3">3</strong>
-        <span>Pasos hasta publicar tu sitio</span>
+        <strong>Sin WordPress</strong>
+        <span>Código propio, rápido y ligero</span>
       </div>
       <div class="trust-pill glass glass-hover">
-        <strong>Tuyo</strong>
-        <span>Archivos y dominio en tus manos</span>
+        <strong>100% tuyo</strong>
+        <span>Sin suscripciones ni ataduras</span>
       </div>
     </div>
   </div>
@@ -730,37 +735,79 @@ html.dark .contact-note{color:var(--ink4)}
   </div>
 </section>
 
-<section class="section section-gap" id="enfoque">
+<section class="section section-gap" id="portafolio">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">Qué incluye</p>
-      <h2>Todo lo esencial en un solo proyecto</h2>
-      <p>Diseño, desarrollo y publicación, sin plataformas que te atan ni funciones que no usarás.</p>
+      <p class="eyebrow">Trabajo real</p>
+      <h2>Sin plantillas. Solo diseño a medida.</h2>
+      <p>Así queda cuando el diseño parte desde cero con tu marca como referencia.</p>
     </div>
-    <div class="benefits-grid">
-      <article class="benefit glass glass-hover reveal reveal-d1">
-        <h3>Diseño con intención</h3>
-        <p>Colores, tipografía y estructura alineados con tu marca.</p>
+    <div class="portfolio-grid">
+      <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1">
+        <div class="portfolio-img" style="background-image:url('https://image.thum.io/get/width/640/crop/640/noanimate/https://umanaliving.com')"></div>
+        <div class="portfolio-info">
+          <div class="portfolio-info-left">
+            <span class="portfolio-tag">Estilo de vida · Entregado en 2 semanas</span>
+            <h3>Umana Living</h3>
+            <p>Sitio completo a medida: home, productos y contacto. Diseño limpio alineado con la identidad de la marca.</p>
+          </div>
+          <span class="portfolio-link">Ver sitio</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-gap" id="servicios">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Servicios</p>
+      <h2>Elige el alcance de tu proyecto</h2>
+      <p>Precio fijo acordado antes de empezar. Sin sorpresas, sin letra pequeña.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service glass glass-hover reveal reveal-d1">
+        <p class="service-tier">Landing</p>
+        <h3>Una página que vende</h3>
+        <p class="service-price">Desde $350</p>
+        <p class="service-desc">Presencia online clara: quién eres, qué ofreces y cómo contactarte.</p>
+        <ul>
+          <li>Página principal completa</li>
+          <li>Diseño adaptable a móvil y escritorio</li>
+          <li>Contacto o WhatsApp</li>
+          <li>SEO básico</li>
+          <li>Publicación incluida</li>
+        </ul>
+        <a href="#contacto" class="btn btn-line">Empezar proyecto</a>
       </article>
-      <article class="benefit glass glass-hover reveal reveal-d2">
-        <h3>Rápido y ligero</h3>
-        <p>Código optimizado. Carga veloz en móvil y escritorio.</p>
+      <article class="service glass glass-hover featured reveal reveal-d2">
+        <span class="service-badge">Más solicitado</span>
+        <p class="service-tier">Sitio completo</p>
+        <h3>Tu web profesional</h3>
+        <p class="service-price">Desde $700</p>
+        <p class="service-desc">Varias secciones: servicios, información sobre tu negocio, contacto y más.</p>
+        <ul>
+          <li>Hasta 5 secciones</li>
+          <li>Diseño personalizado</li>
+          <li>Detalles de marca</li>
+          <li>Formulario o enlaces de contacto</li>
+          <li>Optimización de velocidad</li>
+          <li>Una ronda de ajustes</li>
+        </ul>
+        <a href="#contacto" class="btn btn-dark">Empezar proyecto</a>
       </article>
-      <article class="benefit glass glass-hover reveal reveal-d3">
-        <h3>Listo para publicar</h3>
-        <p>Sitio en línea con dominio y hosting configurados contigo.</p>
-      </article>
-      <article class="benefit glass glass-hover reveal reveal-d1">
-        <h3>Diseño adaptable</h3>
-        <p>Se ve bien donde te busquen: móvil, tableta u ordenador.</p>
-      </article>
-      <article class="benefit glass glass-hover reveal reveal-d2">
-        <h3>SEO básico</h3>
-        <p>Títulos y estructura para que Google entienda tu negocio.</p>
-      </article>
-      <article class="benefit glass glass-hover reveal reveal-d3">
-        <h3>Propiedad tuya</h3>
-        <p>Los archivos son tuyos. Sin suscripciones obligatorias.</p>
+      <article class="service glass glass-hover reveal reveal-d3">
+        <p class="service-tier">A medida</p>
+        <h3>Proyecto especial</h3>
+        <p class="service-price">Cotización directa</p>
+        <p class="service-desc">Catálogos, idiomas, integraciones: lo definimos juntos.</p>
+        <ul>
+          <li>Alcance a medida</li>
+          <li>Funcionalidades específicas</li>
+          <li>Integraciones (CRM, calendario, etc.)</li>
+          <li>Soporte por proyecto</li>
+        </ul>
+        <a href="#contacto" class="btn btn-line">Agendar conversación</a>
       </article>
     </div>
   </div>
@@ -793,81 +840,6 @@ html.dark .contact-note{color:var(--ink4)}
   </div>
 </section>
 
-<section class="section section-gap" id="portafolio">
-  <div class="container">
-    <div class="section-head center reveal">
-      <p class="eyebrow">Portafolio</p>
-      <h2>Proyectos recientes</h2>
-      <p>Cada proyecto es único. Aquí algunos de los sitios que hemos construido.</p>
-    </div>
-    <div class="portfolio-grid">
-      <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1">
-        <div class="portfolio-img" style="background-image:url('https://image.thum.io/get/width/640/crop/640/noanimate/https://umanaliving.com')"></div>
-        <div class="portfolio-info">
-          <div class="portfolio-info-left">
-            <span class="portfolio-tag">Estilo de vida</span>
-            <h3>Umana Living</h3>
-            <p>Sitio web a medida para marca de lifestyle</p>
-          </div>
-          <span class="portfolio-link">Ver sitio</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section section-gap" id="servicios">
-  <div class="container">
-    <div class="section-head center reveal">
-      <p class="eyebrow">Servicios</p>
-      <h2>Elige el alcance de tu proyecto</h2>
-      <p>El precio lo definimos según tu necesidad, con total transparencia desde el primer mensaje.</p>
-    </div>
-    <div class="services-grid">
-      <article class="service glass glass-hover reveal reveal-d1">
-        <p class="service-tier">Landing</p>
-        <h3>Una página que vende</h3>
-        <p class="service-desc">Presencia online clara: quién eres, qué ofreces y cómo contactarte.</p>
-        <ul>
-          <li>Página principal completa</li>
-          <li>Diseño adaptable a móvil y escritorio</li>
-          <li>Contacto o WhatsApp</li>
-          <li>SEO básico</li>
-          <li>Publicación incluida</li>
-        </ul>
-        <a href="#contacto" class="btn btn-line">Pedir cotización</a>
-      </article>
-      <article class="service glass glass-hover featured reveal reveal-d2">
-        <span class="service-badge">Más solicitado</span>
-        <p class="service-tier">Sitio completo</p>
-        <h3>Tu web profesional</h3>
-        <p class="service-desc">Varias secciones: servicios, información sobre tu negocio, contacto y más.</p>
-        <ul>
-          <li>Hasta 5 secciones</li>
-          <li>Diseño personalizado</li>
-          <li>Detalles de marca</li>
-          <li>Formulario o enlaces de contacto</li>
-          <li>Optimización de velocidad</li>
-          <li>Una ronda de ajustes</li>
-        </ul>
-        <a href="#contacto" class="btn btn-dark">Pedir cotización</a>
-      </article>
-      <article class="service glass glass-hover reveal reveal-d3">
-        <p class="service-tier">A medida</p>
-        <h3>Proyecto especial</h3>
-        <p class="service-desc">Catálogos, idiomas, integraciones: lo definimos juntos.</p>
-        <ul>
-          <li>Alcance a medida</li>
-          <li>Funcionalidades específicas</li>
-          <li>Integraciones (CRM, calendario, etc.)</li>
-          <li>Soporte por proyecto</li>
-        </ul>
-        <a href="#contacto" class="btn btn-line">Agendar conversación</a>
-      </article>
-    </div>
-  </div>
-</section>
-
 <section class="section section-gap" id="faq">
   <div class="container">
     <div class="section-head center reveal">
@@ -875,6 +847,10 @@ html.dark .contact-note{color:var(--ink4)}
       <h2>Lo que suele preguntarse</h2>
     </div>
     <div class="glass faq-wrap reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button">¿Cuánto cuesta un sitio web?</button>
+        <div class="faq-a"><div class="faq-a-inner">Una landing parte desde $350. Un sitio completo con varias secciones, desde $700. Los proyectos a medida los cotizamos según el alcance. En todos los casos, acordamos el precio exacto antes de empezar — sin sorpresas a mitad del proyecto.</div></div>
+      </div>
       <div class="faq-item">
         <button class="faq-q" type="button">¿Cuánto tarda un proyecto?</button>
         <div class="faq-a"><div class="faq-a-inner">Una landing: de 1 a 2 semanas. Un sitio con varias secciones: de 2 a 4 semanas. Te damos un plazo real al definir el alcance.</div></div>
@@ -899,8 +875,8 @@ html.dark .contact-note{color:var(--ink4)}
   <div class="container">
     <div class="section-head center reveal">
       <p class="eyebrow">Contacto</p>
-      <h2>¿Hablamos de tu proyecto?</h2>
-      <p>Cuéntanos qué necesitas. Te respondemos en menos de 24 horas.</p>
+      <h2>Tu sitio en línea en menos de un mes</h2>
+      <p>Cuéntanos qué necesitas. Te respondemos en menos de 24 horas con un plan claro.</p>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-form-card glass">
@@ -940,7 +916,8 @@ html.dark .contact-note{color:var(--ink4)}
     <div class="footer-shell glass">
       <div class="footer-brand">
         <a href="#" class="logo"><span class="nav-logo-dot" aria-hidden="true"></span>Aurevo</a>
-        <p>Sitios web personalizados para negocios que quieren verse profesionales y conseguir más clientes.</p>
+        <p>Estudio de diseño y desarrollo web. Creamos sitios a medida para negocios que quieren verse profesionales y conseguir más clientes.</p>
+        <p class="footer-location">📍 Costa Rica · Trabajamos con clientes en toda Latinoamérica</p>
       </div>
       <ul class="footer-links">
         <li><a href="#portafolio">Portafolio</a></li>

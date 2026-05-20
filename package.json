@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "serve . -l 3000",
     "start": "npm run dev",
-    "preview": "serve . -l 4173"
+    "preview": "serve . -l 4173",
+    "build": "node -e \"console.log('Sitio estático: sin paso de build')\""
   },
   "devDependencies": {
     "serve": "^14.2.4"

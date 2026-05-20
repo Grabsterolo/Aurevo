@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aurevo.studio/sitemap.xml
+Sitemap: https://aurevo-3nr.pages.dev/sitemap.xml

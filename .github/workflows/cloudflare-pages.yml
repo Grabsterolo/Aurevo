@@ -1,0 +1,33 @@
+# Despliega en Cloudflare Pages en cada push a main.
+# Requiere secrets en GitHub: CLOUDFLARE_API_TOKEN y CLOUDFLARE_ACCOUNT_ID
+# Ver CLOUDFLARE.md para configurarlos.
+
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: aurevo-3nr
+          directory: .
+          branch: main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

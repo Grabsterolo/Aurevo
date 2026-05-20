@@ -1,0 +1,5 @@
+# Cloudflare Pages — sitio estático (sin build)
+# https://developers.cloudflare.com/pages/configuration/wrangler-configuration/
+name = "aurevo-3nr"
+compatibility_date = "2026-05-19"
+pages_build_output_dir = "."

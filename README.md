@@ -2,9 +2,11 @@
 
 Landing page del estudio **Aurevo** — diseño y desarrollo web orientado a conversión.
 
+**Producción (Cloudflare Pages):** https://aurevo-3nr.pages.dev
+
 ## Requisitos
 
-- [Node.js](https://nodejs.org/) 18+ (solo para el servidor local de desarrollo)
+- [Node.js](https://nodejs.org/) 18+ (opcional, solo para servidor local)
 
 ## Desarrollo local
 
@@ -15,8 +17,6 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000).
 
-También puedes abrir `index.html` directamente en el navegador, aunque un servidor local evita problemas con rutas absolutas (favicon, 404).
-
 ## Personalizar antes de publicar
 
 Edita `index.html` y actualiza:
@@ -26,33 +26,47 @@ Edita `index.html` y actualiza:
 | Enlace de Calendly | `#contact` → `https://calendly.com/...` |
 | WhatsApp | `#contact` → `https://wa.me/...` |
 | Email | footer → `hello@aurevo.studio` |
-| Dominio en SEO | meta `canonical`, `og:url`, `robots.txt`, `sitemap.xml` |
+| Dominio en SEO | Tras conectar dominio propio, ver [CLOUDFLARE.md](./CLOUDFLARE.md) |
 
-## Despliegue
+## Despliegue en Cloudflare Pages
 
-El sitio es **estático** (HTML, CSS y JS en un solo archivo). Opciones:
+El sitio está pensado para **Cloudflare Pages** (HTML estático, sin build real).
 
-### GitHub Pages
+Guía completa (reconectar Git, secrets de GitHub Actions, dominio propio): **[CLOUDFLARE.md](./CLOUDFLARE.md)**
 
-1. En el repositorio: **Settings → Pages → Build and deployment → GitHub Actions**
-2. Haz push a `main`: el workflow `.github/workflows/pages.yml` publica automáticamente
+Resumen rápido:
 
-### Netlify / Vercel
+| Ajuste en Cloudflare | Valor |
+|----------------------|--------|
+| Framework preset | None |
+| Build command | *(vacío)* |
+| Build output directory | `.` |
+| Rama | `main` |
 
-- Conecta el repo; no hace falta comando de build
-- Directorio de publicación: raíz del proyecto (`.`)
-- `netlify.toml` y `vercel.json` ya están configurados
+Archivos clave: `wrangler.toml`, `_redirects`, `_headers`, workflow `.github/workflows/cloudflare-pages.yml`.
+
+### Si Git aparece “disconnected” en Cloudflare
+
+1. **Reconectar** en Cloudflare → Settings → Builds, **o**
+2. Usar el **workflow de GitHub Actions** con `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` (instrucciones en `CLOUDFLARE.md`).
+
+## Otros hosts
+
+También compatibles: Netlify (`netlify.toml`), Vercel (`vercel.json`).
 
 ## Estructura
 
 ```
-├── index.html          # Página principal
-├── 404.html            # Página de error
-├── favicon.svg         # Icono del sitio
+├── index.html
+├── 404.html
+├── favicon.svg
+├── wrangler.toml       # Cloudflare Pages
+├── _redirects          # 404 en Cloudflare
+├── _headers            # Seguridad y caché
 ├── robots.txt
 ├── sitemap.xml
-├── package.json        # Scripts de desarrollo
-└── .github/workflows/  # CI para GitHub Pages
+├── CLOUDFLARE.md       # Guía de despliegue
+└── .github/workflows/cloudflare-pages.yml
 ```
 
 ## Licencia

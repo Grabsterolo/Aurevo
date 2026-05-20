@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -16,6 +16,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Aurevo","description":"Sitios web personalizados para negocios que quieren verse profesionales y conseguir más clientes.","url":"https://aurevo-3nr.pages.dev","serviceType":"Diseño y Desarrollo Web","areaServed":"América Latina","contactPoint":{"@type":"ContactPoint","contactType":"customer service","availableLanguage":"Spanish"}}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -489,20 +492,139 @@ footer{padding:2.5rem 0 2rem}
   to{transform:translateX(-50%)}
 }
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* SCROLL PROGRESS BAR */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;background:var(--grad);z-index:300;width:0%;pointer-events:none;}
+
+/* DARK MODE */
+html.dark{
+  --ink:#EBEBEB;
+  --ink2:#C5C5C1;
+  --ink3:#888884;
+  --ink4:#57574F;
+  --border:rgba(255,255,255,.1);
+  --glass-bg:rgba(255,255,255,.07);
+  --glass-border:rgba(255,255,255,.12);
+  --glass-shadow:0 8px 32px rgba(0,0,0,.4),0 24px 64px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.06);
+}
+html.dark body{background:#0D0D0B}
+html.dark body::before{
+  background:
+    radial-gradient(ellipse 80% 50% at var(--mx) var(--my),rgba(79,70,229,.18),transparent 55%),
+    radial-gradient(ellipse 60% 45% at calc(var(--mx) + 18%) calc(var(--my) + 12%),rgba(6,182,212,.1),transparent 50%),
+    radial-gradient(ellipse 50% 40% at calc(var(--mx) - 20%) calc(var(--my) - 8%),rgba(79,70,229,.06),transparent 45%),
+    linear-gradient(165deg,#111110 0%,#0D0D0B 45%,#111110 100%);
+}
+html.dark nav .nav-shell{background:rgba(18,18,16,.7);border-color:rgba(255,255,255,.12)}
+html.dark .mob-drawer{background:#111110}
+html.dark .btn-dark{background:#EBEBEB;color:#0A0A0A;border-color:#EBEBEB}
+html.dark .nav-cta{background:#EBEBEB;color:#0A0A0A;border-color:#EBEBEB}
+html.dark .mob-close{background:#EBEBEB;color:#0A0A0A}
+html.dark .glass-dark{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
+html.dark .form-group input,html.dark .form-group textarea{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:var(--ink)}
+html.dark ::selection{background:rgba(79,70,229,.3);color:#EBEBEB}
+
+/* DARK TOGGLE BUTTON */
+.dark-toggle{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(10,10,10,.1);
+  background:rgba(255,255,255,.4);backdrop-filter:blur(8px);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:background .2s,border-color .2s;color:var(--ink);padding:0;
+}
+.dark-toggle:hover{background:rgba(255,255,255,.7)}
+.icon-moon{display:none}
+html.dark .icon-sun{display:none}
+html.dark .icon-moon{display:block}
+html.dark .dark-toggle{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+html.dark .dark-toggle:hover{background:rgba(255,255,255,.15)}
+.mob-theme-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 0;border-bottom:1px solid var(--border);
+  font-size:.88rem;font-weight:500;color:var(--ink2);
+}
+
+/* PORTFOLIO */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.portfolio-card{overflow:hidden;padding:0}
+.portfolio-img{
+  height:175px;
+  background:linear-gradient(135deg,var(--c1),var(--c2));
+  position:relative;
+}
+.portfolio-img::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.portfolio-info{padding:1.35rem 1.5rem}
+.portfolio-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--a)}
+.portfolio-info h3{font-size:1.1rem;font-weight:700;letter-spacing:-.035em;margin:.35rem 0 .3rem}
+.portfolio-info p{font-size:.85rem;color:var(--ink3);line-height:1.5}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:1fr}}
+
+/* CONTACT FORM */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
+.contact-form-card{padding:2rem 1.75rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem;color:var(--ink3)}
+.form-group input,.form-group textarea{
+  width:100%;padding:.72rem 1rem;
+  border-radius:12px;border:1px solid rgba(10,10,10,.1);
+  background:rgba(255,255,255,.45);
+  font-family:var(--font);font-size:.9rem;color:var(--ink);
+  outline:none;transition:border-color .2s,box-shadow .2s,background .2s;
+  resize:none;-webkit-appearance:none;
+}
+.form-group input:focus,.form-group textarea:focus{
+  border-color:rgba(79,70,229,.45);
+  box-shadow:0 0 0 3px rgba(79,70,229,.1);
+  background:rgba(255,255,255,.65);
+}
+.form-group textarea{height:110px}
+.form-submit{width:100%}
+.form-msg{
+  display:none;margin-top:.75rem;padding:.7rem 1rem;
+  border-radius:10px;font-size:.86rem;font-weight:600;text-align:center;
+}
+.form-msg.ok{background:rgba(26,158,75,.12);color:#1A9E4B;display:block}
+.form-msg.err{background:rgba(220,38,38,.1);color:#DC2626;display:block}
+.contact-info-card{
+  padding:2rem 1.75rem;
+  display:flex;flex-direction:column;gap:1.25rem;
+  min-height:300px;justify-content:space-between;
+}
+.contact-info-card h3{font-size:1.3rem;font-weight:700;letter-spacing:-.04em;line-height:1.25;color:#fff}
+.contact-info-card>p{font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.65)}
+.contact-note{font-size:.78rem;color:rgba(255,255,255,.45)}
+html.dark .contact-info-card h3{color:var(--ink)}
+html.dark .contact-info-card>p{color:var(--ink3)}
+html.dark .contact-note{color:var(--ink4)}
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 <div class="page">
+<div id="scrollProgress" aria-hidden="true"></div>
 
 <nav id="nav">
   <div class="nav-shell">
     <a href="#" class="logo"><span class="nav-logo-dot" aria-hidden="true"></span>Aurevo</a>
     <ul class="nav-links">
+      <li><a href="#portafolio">Portafolio</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#faq">Preguntas</a></li>
     </ul>
     <a href="#contacto" class="nav-cta">Hablemos</a>
+    <button class="dark-toggle" id="darkToggle" type="button" aria-label="Cambiar tema">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mob">
       <span></span><span></span><span></span>
     </button>
@@ -516,7 +638,15 @@ footer{padding:2.5rem 0 2rem}
       <a href="#" class="logo" data-close><span class="nav-logo-dot" aria-hidden="true"></span>Aurevo</a>
       <button class="mob-close" id="mobClose" type="button" aria-label="Cerrar menú">✕</button>
     </div>
+    <div class="mob-theme-row">
+      <span>Tema oscuro</span>
+      <button class="dark-toggle dark-toggle-mob" id="darkToggleMob" type="button" aria-label="Cambiar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
     <ul class="mob-list">
+      <li><a href="#portafolio" data-close>Portafolio</a></li>
       <li><a href="#servicios" data-close>Servicios</a></li>
       <li><a href="#proceso" data-close>Proceso</a></li>
       <li><a href="#faq" data-close>Preguntas</a></li>
@@ -539,11 +669,11 @@ footer{padding:2.5rem 0 2rem}
     </div>
     <div class="hero-trust reveal reveal-d1">
       <div class="trust-pill glass glass-hover">
-        <strong>100%</strong>
+        <strong data-count="100" data-suffix="%">100%</strong>
         <span>Código a medida, sin plantillas</span>
       </div>
       <div class="trust-pill glass glass-hover">
-        <strong>3</strong>
+        <strong data-count="3">3</strong>
         <span>Pasos hasta publicar tu sitio</span>
       </div>
       <div class="trust-pill glass glass-hover">
@@ -650,6 +780,42 @@ footer{padding:2.5rem 0 2rem}
   </div>
 </section>
 
+<section class="section section-gap" id="portafolio">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Portafolio</p>
+      <h2>Proyectos recientes</h2>
+      <p>Cada proyecto es único. Aquí algunos de los sitios que hemos construido.</p>
+    </div>
+    <div class="portfolio-grid">
+      <article class="portfolio-card glass glass-hover reveal reveal-d1">
+        <div class="portfolio-img" style="--c1:#4F46E5;--c2:#818CF8"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Salud</span>
+          <h3>Clínica Dental Nova</h3>
+          <p>Landing de conversión con cita en línea</p>
+        </div>
+      </article>
+      <article class="portfolio-card glass glass-hover reveal reveal-d2">
+        <div class="portfolio-img" style="--c1:#0891B2;--c2:#06B6D4"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Consultoría</span>
+          <h3>Astra Legal</h3>
+          <p>Sitio corporativo con blog y contacto</p>
+        </div>
+      </article>
+      <article class="portfolio-card glass glass-hover reveal reveal-d3">
+        <div class="portfolio-img" style="--c1:#7C3AED;--c2:#C4B5FD"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Gastronomía</span>
+          <h3>Café Bruma</h3>
+          <p>Menú digital y reservas por WhatsApp</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="section section-gap" id="servicios">
   <div class="container">
     <div class="section-head center reveal">
@@ -731,13 +897,40 @@ footer{padding:2.5rem 0 2rem}
 
 <section class="section section-gap" id="contacto">
   <div class="container">
-    <div class="cta-card glass glass-dark glass-hover reveal">
-      <h2>¿Hablamos de tu sitio?</h2>
-      <p>Cuéntanos qué negocio tienes y qué necesitas. Te respondemos en menos de 24 horas.</p>
-      <div class="cta-btns">
-        <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="btn btn-wa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    <div class="section-head center reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2>¿Hablamos de tu proyecto?</h2>
+      <p>Cuéntanos qué necesitas. Te respondemos en menos de 24 horas.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-form-card glass">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Nombre</label>
+              <input type="text" id="fname" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="femail">Correo</label>
+              <input type="email" id="femail" name="correo" placeholder="tu@correo.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Mensaje</label>
+            <textarea id="fmsg" name="mensaje" placeholder="Cuéntanos sobre tu negocio y qué necesitas..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark form-submit">Enviar mensaje</button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
       </div>
-      <p class="cta-note">Respuesta en menos de 24 horas</p>
+      <div class="contact-info-card glass glass-dark">
+        <div>
+          <h3>O escríbenos directo</h3>
+          <p>Sin formularios, sin esperas. Cuéntanos tu idea por WhatsApp y te respondemos al momento.</p>
+        </div>
+        <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="btn btn-wa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <p class="contact-note">Respuesta en menos de 24 horas</p>
+      </div>
     </div>
   </div>
 </section>
@@ -750,6 +943,7 @@ footer{padding:2.5rem 0 2rem}
         <p>Sitios web personalizados para negocios que quieren verse profesionales y conseguir más clientes.</p>
       </div>
       <ul class="footer-links">
+        <li><a href="#portafolio">Portafolio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proceso">Proceso</a></li>
         <li><a href="#faq">Preguntas</a></li>
@@ -776,6 +970,15 @@ footer{padding:2.5rem 0 2rem}
 </div>
 
 <script>
+// DARK MODE — runs first to avoid flash of wrong theme
+const html=document.documentElement;
+function applyTheme(dark){html.classList.toggle('dark',dark);}
+applyTheme(localStorage.getItem('theme')==='dark'||(localStorage.getItem('theme')===null&&window.matchMedia('(prefers-color-scheme:dark)').matches));
+function toggleTheme(){const d=!html.classList.contains('dark');applyTheme(d);localStorage.setItem('theme',d?'dark':'light');}
+document.getElementById('darkToggle').onclick=toggleTheme;
+const darkToggleMob=document.getElementById('darkToggleMob');
+if(darkToggleMob)darkToggleMob.onclick=toggleTheme;
+
 const root=document.documentElement;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let mx=50,my=40,targetMx=50,targetMy=40;
@@ -806,6 +1009,10 @@ if(!reduceMotion){
 
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+
+// SCROLL PROGRESS BAR
+const prog=document.getElementById('scrollProgress');
+window.addEventListener('scroll',()=>{prog.style.width=Math.min(scrollY/(document.body.scrollHeight-window.innerHeight)*100,100)+'%';},{passive:true});
 
 const mob=document.getElementById('mob');
 const navToggle=document.getElementById('navToggle');
@@ -874,6 +1081,52 @@ if(!reduceMotion){
       card.style.transform='';
     });
   });
+}
+
+// ANIMATED COUNTERS
+function countUp(el,target,suffix,dur){
+  if(reduceMotion){el.textContent=target+suffix;return}
+  const t0=Date.now();
+  (function s(){
+    const p=Math.min((Date.now()-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(e*target)+suffix;
+    if(p<1)requestAnimationFrame(s);
+  })();
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const s=e.target.querySelector('[data-count]');
+      if(s)countUp(s,+s.dataset.count,s.dataset.suffix||'',1400);
+      cObs.unobserve(e.target);
+    }
+  });
+},{threshold:.6});
+document.querySelectorAll('.trust-pill').forEach(p=>cObs.observe(p));
+
+// CONTACT FORM
+const contactForm=document.getElementById('contactForm');
+const formMsg=document.getElementById('formMsg');
+if(contactForm){
+  contactForm.onsubmit=async e=>{
+    e.preventDefault();
+    const btn=contactForm.querySelector('[type=submit]');
+    const orig=btn.textContent;
+    btn.textContent='Enviando…';btn.disabled=true;
+    formMsg.className='form-msg';
+    try{
+      const res=await fetch(contactForm.action,{method:'POST',body:new FormData(contactForm),headers:{Accept:'application/json'}});
+      if(res.ok){
+        formMsg.textContent='¡Mensaje enviado! Te respondemos pronto.';
+        formMsg.className='form-msg ok';
+        contactForm.reset();
+      } else throw new Error();
+    } catch{
+      formMsg.textContent='Hubo un error. Escríbenos por WhatsApp.';
+      formMsg.className='form-msg err';
+    }
+    btn.textContent=orig;btn.disabled=false;
+  };
 }
 </script>
 </body>

@@ -620,10 +620,52 @@ html.dark .dark-toggle:hover{background:rgba(255,255,255,.15)}
 .portfolio-card{overflow:hidden;padding:0;display:block;text-decoration:none;color:inherit}
 .portfolio-img{
   height:320px;
-  background:linear-gradient(135deg,#059669,#6EE7B7);
-  background-size:cover;background-position:top center;
-  position:relative;
+  background:linear-gradient(145deg,#152B20,#2A5540);
+  position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;
 }
+
+/* Umana Living designed card */
+.up-orb{position:absolute;border-radius:50%}
+.up-orb--1{
+  width:340px;height:340px;top:-120px;right:-80px;
+  background:radial-gradient(circle,rgba(107,176,120,.2) 0%,transparent 65%);
+  border:1px solid rgba(255,255,255,.06);
+}
+.up-orb--2{
+  width:200px;height:200px;top:-10px;right:80px;
+  background:radial-gradient(circle,rgba(180,225,170,.08) 0%,transparent 65%);
+  border:1px solid rgba(255,255,255,.04);
+}
+.up-orb--3{
+  width:120px;height:120px;bottom:-30px;left:-20px;
+  background:radial-gradient(circle,rgba(90,160,100,.15) 0%,transparent 65%);
+}
+.up-leaf{
+  position:absolute;right:2.25rem;top:50%;
+  transform:translateY(-55%);width:88px;opacity:.55;
+}
+.up-content{position:relative;z-index:2;padding:1.75rem 2rem}
+.up-tag{
+  display:block;font-size:.63rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.38);margin-bottom:.6rem;
+}
+.up-name{
+  display:block;font-size:2rem;font-weight:700;
+  color:#fff;letter-spacing:-.045em;line-height:1;
+}
+.up-sub{
+  display:block;font-size:.8rem;
+  color:rgba(255,255,255,.28);margin-top:.45rem;letter-spacing:.01em;
+}
+.up-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin-top:1rem;padding:.3rem .75rem;border-radius:999px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  font-size:.68rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.04em;
+}
+.up-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;flex-shrink:0}
 .portfolio-info{padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .portfolio-info-left{}
 .portfolio-tag{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--a)}
@@ -851,7 +893,24 @@ html.dark .contact-note{color:var(--ink4)}
     </div>
     <div class="portfolio-grid">
       <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1">
-        <div class="portfolio-img" style="background-image:url('https://image.thum.io/get/width/640/crop/640/noanimate/https://umanaliving.com')"></div>
+        <div class="portfolio-img">
+          <div class="up-orb up-orb--1"></div>
+          <div class="up-orb up-orb--2"></div>
+          <div class="up-orb up-orb--3"></div>
+          <svg class="up-leaf" viewBox="0 0 88 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M44 124C44 124 6 92 6 54C6 28.6 22.6 8 44 8C65.4 8 82 28.6 82 54C82 92 44 124 44 124Z" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" fill="rgba(255,255,255,0.03)"/>
+            <line x1="44" y1="124" x2="44" y2="8" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+            <path d="M44 72C44 72 24 56 24 38" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+            <path d="M44 88C44 88 64 72 64 50" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
+            <path d="M44 54C44 54 30 44 30 30" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
+          </svg>
+          <div class="up-content">
+            <span class="up-tag">Lifestyle &amp; Home</span>
+            <span class="up-name">Umana Living</span>
+            <span class="up-sub">umanaliving.com</span>
+            <span class="up-badge"><span class="up-dot"></span>En línea</span>
+          </div>
+        </div>
         <div class="portfolio-info">
           <div class="portfolio-info-left">
             <span class="portfolio-tag" data-i18n="portfolio.tag">Estilo de vida · Entregado en 2 semanas</span>

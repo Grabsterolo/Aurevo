@@ -579,6 +579,14 @@ html.dark .dark-toggle:hover{background:rgba(255,255,255,.15)}
 }
 .portfolio-link::after{content:'→'}
 
+/* LANG SWITCH */
+.lang-switch{display:flex;align-items:center;background:rgba(0,0,0,.07);border-radius:999px;padding:2px;gap:1px}
+.lang-btn{font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:.25rem .55rem;border-radius:999px;border:none;background:transparent;cursor:pointer;color:var(--ink3);transition:all .18s;line-height:1}
+.lang-btn.active{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+html.dark .lang-switch{background:rgba(255,255,255,.1)}
+html.dark .lang-btn.active{background:rgba(255,255,255,.18);color:var(--ink)}
+.mob-lang-row{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid var(--border)}
+
 /* CONTACT FORM */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
 .contact-form-card{padding:2rem 1.75rem}
@@ -631,13 +639,17 @@ html.dark .contact-note{color:var(--ink4)}
   <div class="nav-shell">
     <a href="#" class="logo"><span class="nav-logo-dot" aria-hidden="true"></span>Aurevo</a>
     <ul class="nav-links">
-      <li><a href="#portafolio">Portafolio</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="#portafolio" data-i18n="nav.portfolio">Portafolio</a></li>
+      <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+      <li><a href="#proceso" data-i18n="nav.process">Proceso</a></li>
+      <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
     </ul>
     <div class="nav-end">
-      <a href="#contacto" class="nav-cta">Hablemos</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#contacto" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
       <button class="dark-toggle" id="darkToggle" type="button" aria-label="Cambiar tema">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -657,46 +669,53 @@ html.dark .contact-note{color:var(--ink4)}
       <button class="mob-close" id="mobClose" type="button" aria-label="Cerrar menú">✕</button>
     </div>
     <div class="mob-theme-row">
-      <span>Tema oscuro</span>
+      <span data-i18n="mob.theme">Tema oscuro</span>
       <button class="dark-toggle dark-toggle-mob" id="darkToggleMob" type="button" aria-label="Cambiar tema">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
     </div>
+    <div class="mob-lang-row">
+      <span data-i18n="mob.theme.lang">Idioma</span>
+      <div class="lang-switch lang-switch-mob" id="langSwitchMob">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
     <ul class="mob-list">
-      <li><a href="#portafolio" data-close>Portafolio</a></li>
-      <li><a href="#servicios" data-close>Servicios</a></li>
-      <li><a href="#proceso" data-close>Proceso</a></li>
-      <li><a href="#faq" data-close>Preguntas</a></li>
-      <li><a href="#contacto" data-close>Contacto</a></li>
+      <li><a href="#portafolio" data-close data-i18n="nav.portfolio">Portafolio</a></li>
+      <li><a href="#servicios" data-close data-i18n="nav.services">Servicios</a></li>
+      <li><a href="#proceso" data-close data-i18n="nav.process">Proceso</a></li>
+      <li><a href="#faq" data-close data-i18n="nav.faq">Preguntas</a></li>
+      <li><a href="#contacto" data-close data-i18n="nav.contact">Contacto</a></li>
     </ul>
-    <a href="#contacto" class="btn btn-dark mob-drawer-cta" data-close>Hablemos</a>
+    <a href="#contacto" class="btn btn-dark mob-drawer-cta" data-close data-i18n="nav.cta">Hablemos</a>
   </aside>
 </div>
 
 <section class="hero section">
   <div class="container">
     <div class="hero-card glass glass-hover reveal">
-      <h1>Un sitio web hace tu negocio <span id="heroWord" class="hero-word">real</span></h1>
-      <p class="hero-sub">Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.</p>
+      <h1><span data-i18n="hero.headline">Un sitio web hace tu negocio</span> <span id="heroWord" class="hero-word">real</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.</p>
       <div class="hero-btns">
-        <a href="#contacto" class="btn btn-dark">Quiero mi sitio web</a>
-        <a href="#servicios" class="btn btn-line">Ver planes</a>
+        <a href="#contacto" class="btn btn-dark" data-i18n="hero.cta1">Quiero mi sitio web</a>
+        <a href="#servicios" class="btn btn-line" data-i18n="hero.cta2">Ver planes</a>
       </div>
-      <p class="hero-note">Respuesta en menos de 24 horas</p>
+      <p class="hero-note" data-i18n="hero.note">Respuesta en menos de 24 horas</p>
     </div>
     <div class="hero-trust reveal reveal-d1">
       <div class="trust-pill glass glass-hover">
-        <strong>1–3 sem.</strong>
-        <span>De brief a sitio publicado</span>
+        <strong data-i18n="trust.1.val">1–3 sem.</strong>
+        <span data-i18n="trust.1.label">De brief a sitio publicado</span>
       </div>
       <div class="trust-pill glass glass-hover">
-        <strong>Sin WordPress</strong>
-        <span>Código propio, rápido y ligero</span>
+        <strong data-i18n="trust.2.val">Sin WordPress</strong>
+        <span data-i18n="trust.2.label">Código propio, rápido y ligero</span>
       </div>
       <div class="trust-pill glass glass-hover">
-        <strong>100% tuyo</strong>
-        <span>Sin suscripciones ni ataduras</span>
+        <strong data-i18n="trust.3.val">100% tuyo</strong>
+        <span data-i18n="trust.3.label">Sin suscripciones ni ataduras</span>
       </div>
     </div>
   </div>
@@ -711,25 +730,25 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="section section-gap" id="problema">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">El problema</p>
-      <h2>Tu página debería trabajar por ti, no en tu contra</h2>
-      <p>Si inviertes en redes o en publicidad, pero tu web no convence, pierdes oportunidades antes del primer mensaje.</p>
+      <p class="eyebrow" data-i18n="problem.eyebrow">El problema</p>
+      <h2 data-i18n="problem.h2">Tu página debería trabajar por ti, no en tu contra</h2>
+      <p data-i18n="problem.p">Si inviertes en redes o en publicidad, pero tu web no convence, pierdes oportunidades antes del primer mensaje.</p>
     </div>
     <div class="problems-grid">
       <article class="problem-card glass glass-hover reveal reveal-d1">
         <div class="problem-icon" aria-hidden="true">◆</div>
-        <h3>Pareces igual que todos</h3>
-        <p>Plantillas repetidas y textos genéricos. Tu cliente no recuerda tu marca.</p>
+        <h3 data-i18n="problem.1.h3">Pareces igual que todos</h3>
+        <p data-i18n="problem.1.p">Plantillas repetidas y textos genéricos. Tu cliente no recuerda tu marca.</p>
       </article>
       <article class="problem-card glass glass-hover reveal reveal-d2">
         <div class="problem-icon" aria-hidden="true">→</div>
-        <h3>El visitante no sabe qué hacer</h3>
-        <p>Sin un mensaje claro ni una llamada a la acción visible, se va sin escribirte.</p>
+        <h3 data-i18n="problem.2.h3">El visitante no sabe qué hacer</h3>
+        <p data-i18n="problem.2.p">Sin un mensaje claro ni una llamada a la acción visible, se va sin escribirte.</p>
       </article>
       <article class="problem-card glass glass-hover reveal reveal-d3">
         <div class="problem-icon" aria-hidden="true">◎</div>
-        <h3>Dependes de terceros</h3>
-        <p>Constructores lentos y plugins frágiles. Necesitas algo simple que controles.</p>
+        <h3 data-i18n="problem.3.h3">Dependes de terceros</h3>
+        <p data-i18n="problem.3.p">Constructores lentos y plugins frágiles. Necesitas algo simple que controles.</p>
       </article>
     </div>
   </div>
@@ -738,20 +757,20 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="section section-gap" id="portafolio">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">Trabajo real</p>
-      <h2>Sin plantillas. Solo diseño a medida.</h2>
-      <p>Así queda cuando el diseño parte desde cero con tu marca como referencia.</p>
+      <p class="eyebrow" data-i18n="portfolio.eyebrow">Trabajo real</p>
+      <h2 data-i18n="portfolio.h2">Sin plantillas. Solo diseño a medida.</h2>
+      <p data-i18n="portfolio.p">Así queda cuando el diseño parte desde cero con tu marca como referencia.</p>
     </div>
     <div class="portfolio-grid">
       <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1">
         <div class="portfolio-img" style="background-image:url('https://image.thum.io/get/width/640/crop/640/noanimate/https://umanaliving.com')"></div>
         <div class="portfolio-info">
           <div class="portfolio-info-left">
-            <span class="portfolio-tag">Estilo de vida · Entregado en 2 semanas</span>
-            <h3>Umana Living</h3>
-            <p>Sitio completo a medida: home, productos y contacto. Diseño limpio alineado con la identidad de la marca.</p>
+            <span class="portfolio-tag" data-i18n="portfolio.tag">Estilo de vida · Entregado en 2 semanas</span>
+            <h3 data-i18n="portfolio.name">Umana Living</h3>
+            <p data-i18n="portfolio.desc">Sitio completo a medida: home, productos y contacto. Diseño limpio alineado con la identidad de la marca.</p>
           </div>
-          <span class="portfolio-link">Ver sitio</span>
+          <span class="portfolio-link" data-i18n="portfolio.link">Ver sitio</span>
         </div>
       </a>
     </div>
@@ -761,53 +780,53 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="section section-gap" id="servicios">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">Servicios</p>
-      <h2>Elige el alcance de tu proyecto</h2>
-      <p>Precio fijo acordado antes de empezar. Sin sorpresas, sin letra pequeña.</p>
+      <p class="eyebrow" data-i18n="services.eyebrow">Servicios</p>
+      <h2 data-i18n="services.h2">Elige el alcance de tu proyecto</h2>
+      <p data-i18n="services.p">Precio fijo acordado antes de empezar. Sin sorpresas, sin letra pequeña.</p>
     </div>
     <div class="services-grid">
       <article class="service glass glass-hover reveal reveal-d1">
-        <p class="service-tier">Landing</p>
-        <h3>Una página que vende</h3>
-        <p class="service-price">Desde $350</p>
-        <p class="service-desc">Presencia online clara: quién eres, qué ofreces y cómo contactarte.</p>
+        <p class="service-tier" data-i18n="plan1.tier">Landing</p>
+        <h3 data-i18n="plan1.h3">Una página que vende</h3>
+        <p class="service-price" data-i18n="plan1.price">Desde $200</p>
+        <p class="service-desc" data-i18n="plan1.desc">Presencia online clara: quién eres, qué ofreces y cómo contactarte.</p>
         <ul>
-          <li>Página principal completa</li>
-          <li>Diseño adaptable a móvil y escritorio</li>
-          <li>Contacto o WhatsApp</li>
-          <li>SEO básico</li>
-          <li>Publicación incluida</li>
+          <li data-i18n="plan1.li1">Página principal completa</li>
+          <li data-i18n="plan1.li2">Diseño adaptable a móvil y escritorio</li>
+          <li data-i18n="plan1.li3">Contacto o WhatsApp</li>
+          <li data-i18n="plan1.li4">SEO básico</li>
+          <li data-i18n="plan1.li5">Publicación incluida</li>
         </ul>
-        <a href="#contacto" class="btn btn-line">Empezar proyecto</a>
+        <a href="#contacto" class="btn btn-line" data-i18n="plan1.cta">Empezar proyecto</a>
       </article>
       <article class="service glass glass-hover featured reveal reveal-d2">
-        <span class="service-badge">Más solicitado</span>
-        <p class="service-tier">Sitio completo</p>
-        <h3>Tu web profesional</h3>
-        <p class="service-price">Desde $700</p>
-        <p class="service-desc">Varias secciones: servicios, información sobre tu negocio, contacto y más.</p>
+        <span class="service-badge" data-i18n="services.badge">Más solicitado</span>
+        <p class="service-tier" data-i18n="plan2.tier">Sitio completo</p>
+        <h3 data-i18n="plan2.h3">Tu web profesional</h3>
+        <p class="service-price" data-i18n="plan2.price">Desde $450</p>
+        <p class="service-desc" data-i18n="plan2.desc">Varias secciones: servicios, información sobre tu negocio, contacto y más.</p>
         <ul>
-          <li>Hasta 5 secciones</li>
-          <li>Diseño personalizado</li>
-          <li>Detalles de marca</li>
-          <li>Formulario o enlaces de contacto</li>
-          <li>Optimización de velocidad</li>
-          <li>Una ronda de ajustes</li>
+          <li data-i18n="plan2.li1">Hasta 5 secciones</li>
+          <li data-i18n="plan2.li2">Diseño personalizado</li>
+          <li data-i18n="plan2.li3">Detalles de marca</li>
+          <li data-i18n="plan2.li4">Formulario o enlaces de contacto</li>
+          <li data-i18n="plan2.li5">Optimización de velocidad</li>
+          <li data-i18n="plan2.li6">Una ronda de ajustes</li>
         </ul>
-        <a href="#contacto" class="btn btn-dark">Empezar proyecto</a>
+        <a href="#contacto" class="btn btn-dark" data-i18n="plan2.cta">Empezar proyecto</a>
       </article>
       <article class="service glass glass-hover reveal reveal-d3">
-        <p class="service-tier">A medida</p>
-        <h3>Proyecto especial</h3>
-        <p class="service-price">Cotización directa</p>
-        <p class="service-desc">Catálogos, idiomas, integraciones: lo definimos juntos.</p>
+        <p class="service-tier" data-i18n="plan3.tier">A medida</p>
+        <h3 data-i18n="plan3.h3">Proyecto especial</h3>
+        <p class="service-price" data-i18n="plan3.price">Cotización directa</p>
+        <p class="service-desc" data-i18n="plan3.desc">Catálogos, idiomas, integraciones: lo definimos juntos.</p>
         <ul>
-          <li>Alcance a medida</li>
-          <li>Funcionalidades específicas</li>
-          <li>Integraciones (CRM, calendario, etc.)</li>
-          <li>Soporte por proyecto</li>
+          <li data-i18n="plan3.li1">Alcance a medida</li>
+          <li data-i18n="plan3.li2">Funcionalidades específicas</li>
+          <li data-i18n="plan3.li3">Integraciones (CRM, calendario, etc.)</li>
+          <li data-i18n="plan3.li4">Soporte por proyecto</li>
         </ul>
-        <a href="#contacto" class="btn btn-line">Agendar conversación</a>
+        <a href="#contacto" class="btn btn-line" data-i18n="plan3.cta">Agendar conversación</a>
       </article>
     </div>
   </div>
@@ -816,25 +835,25 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="section section-gap" id="proceso">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">Proceso</p>
-      <h2>De la idea al sitio en línea</h2>
-      <p>Tres pasos claros, sin jerga técnica ni sorpresas en el camino.</p>
+      <p class="eyebrow" data-i18n="process.eyebrow">Proceso</p>
+      <h2 data-i18n="process.h2">De la idea al sitio en línea</h2>
+      <p data-i18n="process.p">Tres pasos claros, sin jerga técnica ni sorpresas en el camino.</p>
     </div>
     <div class="steps-grid">
       <article class="step-card glass glass-hover reveal reveal-d1">
         <p class="step-num">01</p>
-        <h3>Conversamos</h3>
-        <p>Entendemos tu negocio, tu cliente ideal y qué debe lograr la página.</p>
+        <h3 data-i18n="process.1.h3">Conversamos</h3>
+        <p data-i18n="process.1.p">Entendemos tu negocio, tu cliente ideal y qué debe lograr la página.</p>
       </article>
       <article class="step-card glass glass-hover reveal reveal-d2">
         <p class="step-num">02</p>
-        <h3>Diseñamos y construimos</h3>
-        <p>Creamos estructura, textos y diseño. Tú revisas hasta que encaje.</p>
+        <h3 data-i18n="process.2.h3">Diseñamos y construimos</h3>
+        <p data-i18n="process.2.p">Creamos estructura, textos y diseño. Tú revisas hasta que encaje.</p>
       </article>
       <article class="step-card glass glass-hover reveal reveal-d3">
         <p class="step-num">03</p>
-        <h3>Publicamos</h3>
-        <p>Lanzamos el sitio y te explicamos cómo pedir cambios después.</p>
+        <h3 data-i18n="process.3.h3">Publicamos</h3>
+        <p data-i18n="process.3.p">Lanzamos el sitio y te explicamos cómo pedir cambios después.</p>
       </article>
     </div>
   </div>
@@ -843,29 +862,29 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="section section-gap" id="faq">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">Preguntas</p>
-      <h2>Lo que suele preguntarse</h2>
+      <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas</p>
+      <h2 data-i18n="faq.h2">Lo que suele preguntarse</h2>
     </div>
     <div class="glass faq-wrap reveal">
       <div class="faq-item">
-        <button class="faq-q" type="button">¿Cuánto cuesta un sitio web?</button>
-        <div class="faq-a"><div class="faq-a-inner">Una landing parte desde $350. Un sitio completo con varias secciones, desde $700. Los proyectos a medida los cotizamos según el alcance. En todos los casos, acordamos el precio exacto antes de empezar — sin sorpresas a mitad del proyecto.</div></div>
+        <button class="faq-q" type="button" data-i18n="faq.q1">¿Cuánto cuesta un sitio web?</button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a1">Una landing parte desde $200. Un sitio completo con varias secciones, desde $450. Los proyectos a medida los cotizamos según el alcance. En todos los casos, acordamos el precio exacto antes de empezar — sin sorpresas a mitad del proyecto.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">¿Cuánto tarda un proyecto?</button>
-        <div class="faq-a"><div class="faq-a-inner">Una landing: de 1 a 2 semanas. Un sitio con varias secciones: de 2 a 4 semanas. Te damos un plazo real al definir el alcance.</div></div>
+        <button class="faq-q" type="button" data-i18n="faq.q2">¿Cuánto tarda un proyecto?</button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a2">Una landing: de 1 a 2 semanas. Un sitio con varias secciones: de 2 a 4 semanas. Te damos un plazo real al definir el alcance.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">¿Utilizan WordPress o plantillas?</button>
-        <div class="faq-a"><div class="faq-a-inner">No. Usamos código propio (HTML, CSS y JavaScript cuando sea necesario) para controlar velocidad, diseño y mantenimiento.</div></div>
+        <button class="faq-q" type="button" data-i18n="faq.q3">¿Utilizan WordPress o plantillas?</button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a3">No. Usamos código propio (HTML, CSS y JavaScript cuando sea necesario) para controlar velocidad, diseño y mantenimiento.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">¿El sitio me pertenece?</button>
-        <div class="faq-a"><div class="faq-a-inner">Sí. Recibes los archivos y el acceso al hosting. Puedes seguir con nosotros o gestionarlo por tu cuenta.</div></div>
+        <button class="faq-q" type="button" data-i18n="faq.q4">¿El sitio me pertenece?</button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a4">Sí. Recibes los archivos y el acceso al hosting. Puedes seguir con nosotros o gestionarlo por tu cuenta.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">¿Puedo pedir cambios después?</button>
-        <div class="faq-a"><div class="faq-a-inner">Sí. Cada plan incluye ajustes acordados. Los cambios mayores se cotizan aparte, sin letra pequeña.</div></div>
+        <button class="faq-q" type="button" data-i18n="faq.q5">¿Puedo pedir cambios después?</button>
+        <div class="faq-a"><div class="faq-a-inner" data-i18n="faq.a5">Sí. Cada plan incluye ajustes acordados. Los cambios mayores se cotizan aparte, sin letra pequeña.</div></div>
       </div>
     </div>
   </div>
@@ -874,38 +893,38 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="section section-gap" id="contacto">
   <div class="container">
     <div class="section-head center reveal">
-      <p class="eyebrow">Contacto</p>
-      <h2>Tu sitio en línea en menos de un mes</h2>
-      <p>Cuéntanos qué necesitas. Te respondemos en menos de 24 horas con un plan claro.</p>
+      <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+      <h2 data-i18n="contact.h2">Tu sitio en línea en menos de un mes</h2>
+      <p data-i18n="contact.p">Cuéntanos qué necesitas. Te respondemos en menos de 24 horas con un plan claro.</p>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-form-card glass">
         <form id="contactForm" action="https://formspree.io/f/xeedavke" method="POST" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label for="fname">Nombre</label>
-              <input type="text" id="fname" name="nombre" placeholder="Tu nombre" required>
+              <label for="fname" data-i18n="contact.fname">Nombre</label>
+              <input type="text" id="fname" name="nombre" placeholder="Tu nombre" data-i18n-ph="contact.fname.ph" required>
             </div>
             <div class="form-group">
-              <label for="femail">Correo</label>
-              <input type="email" id="femail" name="correo" placeholder="tu@correo.com" required>
+              <label for="femail" data-i18n="contact.email">Correo</label>
+              <input type="email" id="femail" name="correo" placeholder="tu@correo.com" data-i18n-ph="contact.email.ph" required>
             </div>
           </div>
           <div class="form-group">
-            <label for="fmsg">Mensaje</label>
-            <textarea id="fmsg" name="mensaje" placeholder="Cuéntanos sobre tu negocio y qué necesitas..." required></textarea>
+            <label for="fmsg" data-i18n="contact.msg">Mensaje</label>
+            <textarea id="fmsg" name="mensaje" placeholder="Cuéntanos sobre tu negocio y qué necesitas..." data-i18n-ph="contact.msg.ph" required></textarea>
           </div>
-          <button type="submit" class="btn btn-dark form-submit">Enviar mensaje</button>
+          <button type="submit" class="btn btn-dark form-submit" data-i18n="contact.submit">Enviar mensaje</button>
           <div class="form-msg" id="formMsg"></div>
         </form>
       </div>
       <div class="contact-info-card glass glass-dark">
         <div>
-          <h3>O escríbenos directo</h3>
-          <p>Sin formularios, sin esperas. Cuéntanos tu idea por WhatsApp y te respondemos al momento.</p>
+          <h3 data-i18n="contact.wa.h3">O escríbenos directo</h3>
+          <p data-i18n="contact.wa.p">Sin formularios, sin esperas. Cuéntanos tu idea por WhatsApp y te respondemos al momento.</p>
         </div>
-        <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="btn btn-wa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-        <p class="contact-note">Respuesta en menos de 24 horas</p>
+        <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="btn btn-wa" target="_blank" rel="noopener" data-i18n="contact.wa.btn">Escribir por WhatsApp</a>
+        <p class="contact-note" data-i18n="contact.note">Respuesta en menos de 24 horas</p>
       </div>
     </div>
   </div>
@@ -916,8 +935,8 @@ html.dark .contact-note{color:var(--ink4)}
     <div class="footer-shell glass">
       <div class="footer-brand">
         <a href="#" class="logo"><span class="nav-logo-dot" aria-hidden="true"></span>Aurevo</a>
-        <p>Estudio de diseño y desarrollo web. Creamos sitios a medida para negocios que quieren verse profesionales y conseguir más clientes.</p>
-        <p class="footer-location">📍 Costa Rica · Trabajamos con clientes en toda Latinoamérica</p>
+        <p data-i18n="footer.desc">Estudio de diseño y desarrollo web. Creamos sitios a medida para negocios que quieren verse profesionales y conseguir más clientes.</p>
+        <p class="footer-location" data-i18n="footer.location">📍 Costa Rica · Trabajamos con clientes en toda Latinoamérica</p>
       </div>
       <ul class="footer-links">
         <li><a href="#portafolio">Portafolio</a></li>
@@ -927,7 +946,7 @@ html.dark .contact-note{color:var(--ink4)}
         <li><a href="https://wa.me/50661130913" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Aurevo</p>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 Aurevo</p>
     </div>
   </div>
 </footer>
@@ -955,6 +974,174 @@ function toggleTheme(){const d=!html.classList.contains('dark');applyTheme(d);lo
 document.getElementById('darkToggle').onclick=toggleTheme;
 const darkToggleMob=document.getElementById('darkToggleMob');
 if(darkToggleMob)darkToggleMob.onclick=toggleTheme;
+
+// I18N
+const i18n={
+  es:{
+    'nav.portfolio':'Portafolio','nav.services':'Servicios','nav.process':'Proceso','nav.faq':'Preguntas','nav.cta':'Hablemos','nav.contact':'Contacto',
+    'mob.theme':'Tema oscuro','mob.theme.lang':'Idioma',
+    'hero.headline':'Un sitio web hace tu negocio',
+    'hero.words':['real','crecer','visible','competir'],
+    'hero.sub':'Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.',
+    'hero.cta1':'Quiero mi sitio web','hero.cta2':'Ver planes','hero.note':'Respuesta en menos de 24 horas',
+    'trust.1.val':'1–3 sem.','trust.1.label':'De brief a sitio publicado',
+    'trust.2.val':'Sin WordPress','trust.2.label':'Código propio, rápido y ligero',
+    'trust.3.val':'100% tuyo','trust.3.label':'Sin suscripciones ni ataduras',
+    'problem.eyebrow':'El problema','problem.h2':'Tu página debería trabajar por ti, no en tu contra',
+    'problem.p':'Si inviertes en redes o en publicidad, pero tu web no convence, pierdes oportunidades antes del primer mensaje.',
+    'problem.1.h3':'Pareces igual que todos','problem.1.p':'Plantillas repetidas y textos genéricos. Tu cliente no recuerda tu marca.',
+    'problem.2.h3':'El visitante no sabe qué hacer','problem.2.p':'Sin un mensaje claro ni una llamada a la acción visible, se va sin escribirte.',
+    'problem.3.h3':'Dependes de terceros','problem.3.p':'Constructores lentos y plugins frágiles. Necesitas algo simple que controles.',
+    'portfolio.eyebrow':'Trabajo real','portfolio.h2':'Sin plantillas. Solo diseño a medida.',
+    'portfolio.p':'Así queda cuando el diseño parte desde cero con tu marca como referencia.',
+    'portfolio.tag':'Estilo de vida · Entregado en 2 semanas','portfolio.name':'Umana Living',
+    'portfolio.desc':'Sitio completo a medida: home, productos y contacto. Diseño limpio alineado con la identidad de la marca.',
+    'portfolio.link':'Ver sitio',
+    'services.eyebrow':'Servicios','services.h2':'Elige el alcance de tu proyecto',
+    'services.p':'Precio fijo acordado antes de empezar. Sin sorpresas, sin letra pequeña.',
+    'services.badge':'Más solicitado',
+    'plan1.tier':'Landing','plan1.h3':'Una página que vende','plan1.price':'Desde $200',
+    'plan1.desc':'Presencia online clara: quién eres, qué ofreces y cómo contactarte.',
+    'plan1.li1':'Página principal completa','plan1.li2':'Diseño adaptable a móvil y escritorio',
+    'plan1.li3':'Contacto o WhatsApp','plan1.li4':'SEO básico','plan1.li5':'Publicación incluida',
+    'plan1.cta':'Empezar proyecto',
+    'plan2.tier':'Sitio completo','plan2.h3':'Tu web profesional','plan2.price':'Desde $450',
+    'plan2.desc':'Varias secciones: servicios, información sobre tu negocio, contacto y más.',
+    'plan2.li1':'Hasta 5 secciones','plan2.li2':'Diseño personalizado','plan2.li3':'Detalles de marca',
+    'plan2.li4':'Formulario o enlaces de contacto','plan2.li5':'Optimización de velocidad','plan2.li6':'Una ronda de ajustes',
+    'plan2.cta':'Empezar proyecto',
+    'plan3.tier':'A medida','plan3.h3':'Proyecto especial','plan3.price':'Cotización directa',
+    'plan3.desc':'Catálogos, idiomas, integraciones: lo definimos juntos.',
+    'plan3.li1':'Alcance a medida','plan3.li2':'Funcionalidades específicas',
+    'plan3.li3':'Integraciones (CRM, calendario, etc.)','plan3.li4':'Soporte por proyecto',
+    'plan3.cta':'Agendar conversación',
+    'process.eyebrow':'Proceso','process.h2':'De la idea al sitio en línea',
+    'process.p':'Tres pasos claros, sin jerga técnica ni sorpresas en el camino.',
+    'process.1.h3':'Conversamos','process.1.p':'Entendemos tu negocio, tu cliente ideal y qué debe lograr la página.',
+    'process.2.h3':'Diseñamos y construimos','process.2.p':'Creamos estructura, textos y diseño. Tú revisas hasta que encaje.',
+    'process.3.h3':'Publicamos','process.3.p':'Lanzamos el sitio y te explicamos cómo pedir cambios después.',
+    'faq.eyebrow':'Preguntas','faq.h2':'Lo que suele preguntarse',
+    'faq.q1':'¿Cuánto cuesta un sitio web?',
+    'faq.a1':'Una landing parte desde $200. Un sitio completo con varias secciones, desde $450. Los proyectos a medida los cotizamos según el alcance. En todos los casos, acordamos el precio exacto antes de empezar — sin sorpresas a mitad del proyecto.',
+    'faq.q2':'¿Cuánto tarda un proyecto?',
+    'faq.a2':'Una landing: de 1 a 2 semanas. Un sitio con varias secciones: de 2 a 4 semanas. Te damos un plazo real al definir el alcance.',
+    'faq.q3':'¿Utilizan WordPress o plantillas?',
+    'faq.a3':'No. Usamos código propio (HTML, CSS y JavaScript cuando sea necesario) para controlar velocidad, diseño y mantenimiento.',
+    'faq.q4':'¿El sitio me pertenece?',
+    'faq.a4':'Sí. Recibes los archivos y el acceso al hosting. Puedes seguir con nosotros o gestionarlo por tu cuenta.',
+    'faq.q5':'¿Puedo pedir cambios después?',
+    'faq.a5':'Sí. Cada plan incluye ajustes acordados. Los cambios mayores se cotizan aparte, sin letra pequeña.',
+    'contact.eyebrow':'Contacto','contact.h2':'Tu sitio en línea en menos de un mes',
+    'contact.p':'Cuéntanos qué necesitas. Te respondemos en menos de 24 horas con un plan claro.',
+    'contact.fname':'Nombre','contact.fname.ph':'Tu nombre',
+    'contact.email':'Correo','contact.email.ph':'tu@correo.com',
+    'contact.msg':'Mensaje','contact.msg.ph':'Cuéntanos sobre tu negocio y qué necesitas...',
+    'contact.submit':'Enviar mensaje',
+    'contact.wa.h3':'O escríbenos directo',
+    'contact.wa.p':'Sin formularios, sin esperas. Cuéntanos tu idea por WhatsApp y te respondemos al momento.',
+    'contact.wa.btn':'Escribir por WhatsApp','contact.note':'Respuesta en menos de 24 horas',
+    'footer.desc':'Estudio de diseño y desarrollo web. Creamos sitios a medida para negocios que quieren verse profesionales y conseguir más clientes.',
+    'footer.location':'📍 Costa Rica · Trabajamos con clientes en toda Latinoamérica',
+    'footer.copy':'© 2026 Aurevo',
+  },
+  en:{
+    'nav.portfolio':'Portfolio','nav.services':'Services','nav.process':'Process','nav.faq':'FAQ','nav.cta':"Let's talk",'nav.contact':'Contact',
+    'mob.theme':'Dark mode','mob.theme.lang':'Language',
+    'hero.headline':'A website makes your business',
+    'hero.words':['real','grow','visible','compete'],
+    'hero.sub':'We design and develop custom websites for your brand: clear, fast, and built to generate leads. No generic templates.',
+    'hero.cta1':'I want my website','hero.cta2':'See plans','hero.note':'Reply within 24 hours',
+    'trust.1.val':'1–3 wks.','trust.1.label':'From brief to live site',
+    'trust.2.val':'No WordPress','trust.2.label':'Custom code, fast and clean',
+    'trust.3.val':'100% yours','trust.3.label':'No subscriptions or lock-in',
+    'problem.eyebrow':'The problem','problem.h2':'Your website should work for you, not against you',
+    'problem.p':"If you invest in social media or ads but your website doesn't convert, you lose leads before they even reach out.",
+    'problem.1.h3':'You look like everyone else','problem.1.p':"Generic templates and copy. Your client won't remember your brand.",
+    'problem.2.h3':"Visitors don't know what to do",'problem.2.p':'Without a clear message or visible call to action, they leave without contacting you.',
+    'problem.3.h3':'You depend on third parties','problem.3.p':'Slow builders and fragile plugins. You need something simple that you control.',
+    'portfolio.eyebrow':'Real work','portfolio.h2':'No templates. Just custom design.',
+    'portfolio.p':'This is what it looks like when design starts from scratch with your brand as the reference.',
+    'portfolio.tag':'Lifestyle · Delivered in 2 weeks','portfolio.name':'Umana Living',
+    'portfolio.desc':'Full custom site: home, products and contact. Clean design aligned with the brand identity.',
+    'portfolio.link':'View site',
+    'services.eyebrow':'Services','services.h2':'Choose the scope of your project',
+    'services.p':'Fixed price agreed before we start. No surprises, no fine print.',
+    'services.badge':'Most popular',
+    'plan1.tier':'Landing','plan1.h3':'A page that sells','plan1.price':'From $200',
+    'plan1.desc':'Clear online presence: who you are, what you offer and how to contact you.',
+    'plan1.li1':'Complete main page','plan1.li2':'Responsive design for mobile and desktop',
+    'plan1.li3':'Contact form or WhatsApp','plan1.li4':'Basic SEO','plan1.li5':'Deployment included',
+    'plan1.cta':'Start project',
+    'plan2.tier':'Full site','plan2.h3':'Your professional web','plan2.price':'From $450',
+    'plan2.desc':'Multiple sections: services, business info, contact and more.',
+    'plan2.li1':'Up to 5 sections','plan2.li2':'Custom design','plan2.li3':'Brand details',
+    'plan2.li4':'Contact form or links','plan2.li5':'Speed optimization','plan2.li6':'One revision round',
+    'plan2.cta':'Start project',
+    'plan3.tier':'Custom','plan3.h3':'Special project','plan3.price':'Direct quote',
+    'plan3.desc':'Catalogs, languages, integrations: we define it together.',
+    'plan3.li1':'Custom scope','plan3.li2':'Specific functionality',
+    'plan3.li3':'Integrations (CRM, calendar, etc.)','plan3.li4':'Per-project support',
+    'plan3.cta':'Schedule a call',
+    'process.eyebrow':'Process','process.h2':'From idea to live site',
+    'process.p':'Three clear steps, no tech jargon and no surprises along the way.',
+    'process.1.h3':'We talk','process.1.p':'We understand your business, your ideal client, and what the page needs to achieve.',
+    'process.2.h3':'We design and build','process.2.p':'We create structure, copy, and design. You review until it feels right.',
+    'process.3.h3':'We launch','process.3.p':'We go live and walk you through how to request changes afterwards.',
+    'faq.eyebrow':'FAQ','faq.h2':'Common questions',
+    'faq.q1':'How much does a website cost?',
+    'faq.a1':'A landing page starts from $200. A full site with multiple sections, from $450. Custom projects are quoted by scope. In every case, the exact price is agreed before we start — no mid-project surprises.',
+    'faq.q2':'How long does a project take?',
+    'faq.a2':'A landing page: 1 to 2 weeks. A multi-section site: 2 to 4 weeks. We give you a realistic timeline once the scope is defined.',
+    'faq.q3':'Do you use WordPress or templates?',
+    'faq.a3':'No. We use custom code (HTML, CSS, and JavaScript when needed) to control speed, design, and maintenance.',
+    'faq.q4':'Do I own the site?',
+    'faq.a4':'Yes. You receive the files and hosting access. You can continue with us or manage it independently.',
+    'faq.q5':'Can I request changes later?',
+    'faq.a5':'Yes. Each plan includes agreed revisions. Larger changes are quoted separately, with no hidden terms.',
+    'contact.eyebrow':'Contact','contact.h2':'Your site live in less than a month',
+    'contact.p':'Tell us what you need. We reply within 24 hours with a clear plan.',
+    'contact.fname':'Name','contact.fname.ph':'Your name',
+    'contact.email':'Email','contact.email.ph':'you@email.com',
+    'contact.msg':'Message','contact.msg.ph':'Tell us about your business and what you need...',
+    'contact.submit':'Send message',
+    'contact.wa.h3':'Or write to us directly',
+    'contact.wa.p':'No forms, no waiting. Tell us your idea on WhatsApp and we reply right away.',
+    'contact.wa.btn':'Write on WhatsApp','contact.note':'Reply within 24 hours',
+    'footer.desc':'Web design and development studio. We build custom sites for businesses that want to look professional and get more clients.',
+    'footer.location':'📍 Costa Rica · We work with clients across Latin America',
+    'footer.copy':'© 2026 Aurevo',
+  }
+};
+
+let currentLang=localStorage.getItem('lang')||(((navigator.language||'es').startsWith('en'))?'en':'es');
+
+function applyLang(lang){
+  currentLang=lang;
+  localStorage.setItem('lang',lang);
+  const t=i18n[lang];
+  // Update text content
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    if(t[key]!==undefined)el.textContent=t[key];
+  });
+  // Update placeholders
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const key=el.getAttribute('data-i18n-ph');
+    if(t[key]!==undefined)el.placeholder=t[key];
+  });
+  // Update rotating words array
+  if(t['hero.words'])words.splice(0,words.length,...t['hero.words']);
+  // Update active button state
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.dataset.lang===lang);
+  });
+  // Update html lang attribute
+  document.documentElement.lang=lang;
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>applyLang(btn.dataset.lang));
+});
 
 const root=document.documentElement;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1026,7 +1213,8 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // ROTATING WORD
-const words=['real','crecer','visible','competir'];
+let words=['real','crecer','visible','competir'];
+applyLang(currentLang);
 let wIdx=0;
 const wEl=document.getElementById('heroWord');
 function nextWord(){

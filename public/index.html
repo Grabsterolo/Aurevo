@@ -199,22 +199,78 @@ nav.scrolled .nav-shell{
 .hero{padding:clamp(6.5rem,14vw,9rem) 0 0}
 .hero-card{
   padding:clamp(2.5rem,6vw,4rem) clamp(2rem,5vw,3.5rem);
-  text-align:center;
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  text-align:left;
 }
 .hero h1{
   font-size:clamp(2.5rem,7vw,4.25rem);
   font-weight:700;line-height:1.05;letter-spacing:-.045em;
-  max-width:15ch;margin:0 auto;
+  max-width:15ch;
 }
 .hero-sub{
   margin-top:1.25rem;font-size:1.05rem;color:var(--ink3);
-  max-width:34rem;margin-inline:auto;line-height:1.75;
+  max-width:34rem;line-height:1.75;
 }
 .hero-btns{
   display:flex;flex-wrap:wrap;gap:.75rem;
-  justify-content:center;margin-top:2rem;
+  margin-top:2rem;
 }
 .hero-note{margin-top:1.1rem;font-size:.82rem;color:var(--ink4)}
+@media(max-width:860px){
+  .hero-card{grid-template-columns:1fr;text-align:center}
+  .hero-visual{display:none}
+  .hero h1{margin:0 auto}
+  .hero-sub{margin-inline:auto}
+  .hero-btns{justify-content:center}
+}
+
+/* HERO VISUAL */
+.hero-visual{position:relative;flex-shrink:0}
+.hv-browser{border-radius:14px;overflow:hidden}
+.hv-chrome{
+  display:flex;align-items:center;gap:.65rem;
+  padding:.65rem 1rem;background:rgba(0,0,0,.06);
+  border-bottom:1px solid var(--border);
+}
+.hv-dots{display:flex;gap:5px}
+.hv-dots span{width:9px;height:9px;border-radius:50%;background:var(--border)}
+.hv-dots span:nth-child(1){background:rgba(255,99,99,.5)}
+.hv-dots span:nth-child(2){background:rgba(255,196,0,.45)}
+.hv-dots span:nth-child(3){background:rgba(50,215,75,.45)}
+.hv-url{
+  flex:1;text-align:center;font-size:.68rem;color:var(--ink3);
+  background:var(--glass-bg);border-radius:5px;padding:.2rem .5rem;
+}
+.hv-body{padding:1rem}
+.hv-nav{
+  display:flex;align-items:center;gap:.5rem;
+  padding:.4rem .6rem;border-radius:7px;
+  background:rgba(0,0,0,.04);margin-bottom:.85rem;
+}
+.hv-brand{width:48px;height:8px;border-radius:4px;background:var(--grad);flex-shrink:0}
+.hv-links{display:flex;gap:.4rem;flex:1;padding:0 .5rem}
+.hv-links span{width:24px;height:7px;border-radius:3px;background:var(--border)}
+.hv-cta-m{width:44px;height:18px;border-radius:9px;background:var(--ink);opacity:.7;flex-shrink:0}
+.hv-hero-content{padding:.5rem 0 .75rem}
+.hv-title{height:14px;border-radius:7px;background:var(--ink);margin-bottom:.45rem;width:80%;opacity:.75}
+.hv-title--accent{width:55%;background:var(--grad);opacity:1;margin-bottom:.7rem}
+.hv-subtitle{height:8px;border-radius:4px;background:var(--border);margin-bottom:.3rem;width:100%}
+.hv-subtitle--short{width:65%}
+.hv-actions{display:flex;gap:.5rem;margin-top:.65rem}
+.hv-btn-dark{width:90px;height:26px;border-radius:13px;background:var(--ink);opacity:.85}
+.hv-btn-line{width:65px;height:26px;border-radius:13px;border:1.5px solid var(--border)}
+.hv-pills-row{display:flex;gap:.5rem;margin-top:.65rem}
+.hv-pill-m{flex:1;height:38px;border-radius:8px;background:var(--glass-bg);border:1px solid var(--border)}
+.hv-badge{
+  position:absolute;bottom:-1.1rem;right:-.5rem;
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem .9rem;border-radius:10px;
+  font-size:.78rem;font-weight:600;pointer-events:none;
+}
+.hv-badge-dot{
+  width:8px;height:8px;border-radius:50%;background:#1A9E4B;
+  flex-shrink:0;box-shadow:0 0 0 3px rgba(26,158,75,.2);
+}
 .hero-trust{
   display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;
   margin-top:1.25rem;
@@ -697,13 +753,49 @@ html.dark .contact-note{color:var(--ink4)}
 <section class="hero section">
   <div class="container">
     <div class="hero-card glass glass-hover reveal">
-      <h1><span data-i18n="hero.headline">Un sitio web hace tu negocio</span> <span id="heroWord" class="hero-word">real</span></h1>
-      <p class="hero-sub" data-i18n="hero.sub">Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.</p>
-      <div class="hero-btns">
-        <a href="#contacto" class="btn btn-dark" data-i18n="hero.cta1">Quiero mi sitio web</a>
-        <a href="#servicios" class="btn btn-line" data-i18n="hero.cta2">Ver planes</a>
+      <div class="hero-content">
+        <h1><span data-i18n="hero.headline">Un sitio web hace tu negocio</span> <span id="heroWord" class="hero-word">real</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">Diseñamos y desarrollamos sitios web a medida para tu marca: claros, rápidos y pensados para generar contactos. Sin plantillas genéricas.</p>
+        <div class="hero-btns">
+          <a href="#contacto" class="btn btn-dark" data-i18n="hero.cta1">Quiero mi sitio web</a>
+          <a href="#servicios" class="btn btn-line" data-i18n="hero.cta2">Ver planes</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Respuesta en menos de 24 horas</p>
       </div>
-      <p class="hero-note" data-i18n="hero.note">Respuesta en menos de 24 horas</p>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hv-browser glass">
+          <div class="hv-chrome">
+            <div class="hv-dots"><span></span><span></span><span></span></div>
+            <div class="hv-url">aurevo.com</div>
+          </div>
+          <div class="hv-body">
+            <div class="hv-nav">
+              <div class="hv-brand"></div>
+              <div class="hv-links"><span></span><span></span><span></span></div>
+              <div class="hv-cta-m"></div>
+            </div>
+            <div class="hv-hero-content">
+              <div class="hv-title"></div>
+              <div class="hv-title hv-title--accent"></div>
+              <div class="hv-subtitle"></div>
+              <div class="hv-subtitle hv-subtitle--short"></div>
+              <div class="hv-actions">
+                <div class="hv-btn-dark"></div>
+                <div class="hv-btn-line"></div>
+              </div>
+            </div>
+            <div class="hv-pills-row">
+              <div class="hv-pill-m"></div>
+              <div class="hv-pill-m"></div>
+              <div class="hv-pill-m"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hv-badge glass">
+          <span class="hv-badge-dot"></span>
+          <span data-i18n="hero.badge">Sitio en línea</span>
+        </div>
+      </div>
     </div>
     <div class="hero-trust reveal reveal-d1">
       <div class="trust-pill glass glass-hover">
@@ -919,7 +1011,7 @@ html.dark .contact-note{color:var(--ink4)}
           <h3 data-i18n="contact.wa.h3">O escríbenos directo</h3>
           <p data-i18n="contact.wa.p">Sin formularios, sin esperas. Cuéntanos tu idea por WhatsApp y te respondemos al momento.</p>
         </div>
-        <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="btn btn-wa" target="_blank" rel="noopener" data-i18n="contact.wa.btn">Escribir por WhatsApp</a>
+        <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="btn btn-wa wa-link" target="_blank" rel="noopener" data-i18n="contact.wa.btn">Escribir por WhatsApp</a>
         <p class="contact-note" data-i18n="contact.note">Respuesta en menos de 24 horas</p>
       </div>
     </div>
@@ -950,7 +1042,7 @@ html.dark .contact-note{color:var(--ink4)}
 
 <a
   href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web"
-  class="wa-float"
+  class="wa-float wa-link"
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Escribir por WhatsApp"
@@ -1040,6 +1132,12 @@ const i18n={
     'footer.location':'📍 Costa Rica · Trabajamos con clientes en toda Latinoamérica',
     'footer.copy':'© 2026 Aurevo',
     'wa.float':'¿Hablamos?',
+    'wa.text':'Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web',
+    'page.title':'Aurevo — Sitios web a medida para tu negocio',
+    'hero.badge':'Sitio en línea',
+    'form.sending':'Enviando…',
+    'form.ok':'¡Mensaje enviado! Te respondemos pronto.',
+    'form.err':'Hubo un error. Escríbenos por WhatsApp.',
   },
   en:{
     'nav.portfolio':'Portfolio','nav.services':'Services','nav.process':'Process','nav.faq':'FAQ','nav.cta':"Let's talk",'nav.contact':'Contact',
@@ -1108,6 +1206,12 @@ const i18n={
     'footer.location':'📍 Costa Rica · We work with clients across Latin America',
     'footer.copy':'© 2026 Aurevo',
     'wa.float':"Let's chat",
+    'wa.text':'Hello%2C%20I%27d%20like%20information%20about%20a%20website',
+    'page.title':'Aurevo — Custom websites for your business',
+    'hero.badge':'Site live',
+    'form.sending':'Sending…',
+    'form.ok':'Message sent! We\'ll get back to you soon.',
+    'form.err':'Something went wrong. Write to us on WhatsApp.',
   }
 };
 
@@ -1129,6 +1233,13 @@ function applyLang(lang){
   });
   // Update rotating words array
   if(t['hero.words'])words.splice(0,words.length,...t['hero.words']);
+  // Update page title
+  if(t['page.title'])document.title=t['page.title'];
+  // Update WhatsApp links
+  const waBase='https://wa.me/50661130913?text=';
+  document.querySelectorAll('.wa-link').forEach(a=>{
+    a.href=waBase+(t['wa.text']||'');
+  });
   // Update active button state
   document.querySelectorAll('.lang-btn').forEach(btn=>{
     btn.classList.toggle('active',btn.dataset.lang===lang);
@@ -1275,17 +1386,18 @@ if(contactForm){
     e.preventDefault();
     const btn=contactForm.querySelector('[type=submit]');
     const orig=btn.textContent;
-    btn.textContent='Enviando…';btn.disabled=true;
+    const t=i18n[currentLang];
+    btn.textContent=t['form.sending']||'Enviando…';btn.disabled=true;
     formMsg.className='form-msg';
     try{
       const res=await fetch(contactForm.action,{method:'POST',body:new FormData(contactForm),headers:{Accept:'application/json'}});
       if(res.ok){
-        formMsg.textContent='¡Mensaje enviado! Te respondemos pronto.';
+        formMsg.textContent=t['form.ok']||'¡Mensaje enviado!';
         formMsg.className='form-msg ok';
         contactForm.reset();
       } else throw new Error();
     } catch{
-      formMsg.textContent='Hubo un error. Escríbenos por WhatsApp.';
+      formMsg.textContent=t['form.err']||'Hubo un error.';
       formMsg.className='form-msg err';
     }
     btn.textContent=orig;btn.disabled=false;

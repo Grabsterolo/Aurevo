@@ -626,44 +626,35 @@ html.dark .dark-toggle:hover{background:rgba(255,255,255,.15)}
 }
 
 /* Umana Living designed card */
-.up-orb{position:absolute;border-radius:50%}
-.up-orb--1{
-  width:340px;height:340px;top:-120px;right:-80px;
-  background:radial-gradient(circle,rgba(107,176,120,.2) 0%,transparent 65%);
-  border:1px solid rgba(255,255,255,.06);
+.portfolio-img{background:linear-gradient(150deg,#1E0D06 0%,#3A1A0A 50%,#5C2E10 100%)}
+.up-glow{
+  position:absolute;border-radius:50%;
+  width:380px;height:380px;top:-100px;right:-100px;
+  background:radial-gradient(circle,rgba(237,213,163,.1) 0%,transparent 60%);
 }
-.up-orb--2{
-  width:200px;height:200px;top:-10px;right:80px;
-  background:radial-gradient(circle,rgba(180,225,170,.08) 0%,transparent 65%);
-  border:1px solid rgba(255,255,255,.04);
-}
-.up-orb--3{
-  width:120px;height:120px;bottom:-30px;left:-20px;
-  background:radial-gradient(circle,rgba(90,160,100,.15) 0%,transparent 65%);
-}
-.up-leaf{
-  position:absolute;right:2.25rem;top:50%;
-  transform:translateY(-55%);width:88px;opacity:.55;
+.up-logo{
+  position:absolute;right:1.75rem;top:50%;
+  transform:translateY(-50%);width:130px;opacity:.92;
 }
 .up-content{position:relative;z-index:2;padding:1.75rem 2rem}
 .up-tag{
   display:block;font-size:.63rem;font-weight:600;
   letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.38);margin-bottom:.6rem;
+  color:rgba(237,213,163,.5);margin-bottom:.65rem;
 }
 .up-name{
-  display:block;font-size:2rem;font-weight:700;
-  color:#fff;letter-spacing:-.045em;line-height:1;
+  display:block;font-size:1.9rem;font-weight:700;
+  color:#EDD5A3;letter-spacing:-.035em;line-height:1;
 }
 .up-sub{
-  display:block;font-size:.8rem;
-  color:rgba(255,255,255,.28);margin-top:.45rem;letter-spacing:.01em;
+  display:block;font-size:.78rem;
+  color:rgba(237,213,163,.35);margin-top:.4rem;
 }
 .up-badge{
   display:inline-flex;align-items:center;gap:.4rem;
-  margin-top:1rem;padding:.3rem .75rem;border-radius:999px;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-  font-size:.68rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.04em;
+  margin-top:1rem;padding:.28rem .72rem;border-radius:999px;
+  background:rgba(237,213,163,.08);border:1px solid rgba(237,213,163,.18);
+  font-size:.66rem;font-weight:600;color:rgba(237,213,163,.55);letter-spacing:.04em;
 }
 .up-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;flex-shrink:0}
 .portfolio-info{padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
@@ -894,15 +885,33 @@ html.dark .contact-note{color:var(--ink4)}
     <div class="portfolio-grid">
       <a href="https://umanaliving.com" target="_blank" rel="noopener" class="portfolio-card glass glass-hover reveal reveal-d1">
         <div class="portfolio-img">
-          <div class="up-orb up-orb--1"></div>
-          <div class="up-orb up-orb--2"></div>
-          <div class="up-orb up-orb--3"></div>
-          <svg class="up-leaf" viewBox="0 0 88 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M44 124C44 124 6 92 6 54C6 28.6 22.6 8 44 8C65.4 8 82 28.6 82 54C82 92 44 124 44 124Z" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" fill="rgba(255,255,255,0.03)"/>
-            <line x1="44" y1="124" x2="44" y2="8" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-            <path d="M44 72C44 72 24 56 24 38" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-            <path d="M44 88C44 88 64 72 64 50" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
-            <path d="M44 54C44 54 30 44 30 30" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
+          <div class="up-glow"></div>
+          <!-- Logo recreado: luna creciente + mano + planta -->
+          <svg class="up-logo" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Luna creciente -->
+            <path d="M100 20 C55 20 18 57 18 102 C18 147 55 184 100 184 C78 184 60 166 60 144 C60 110 82 82 114 76 C126 74 138 76 148 82 C136 46 120 20 100 20Z" fill="#5C2E10"/>
+            <!-- Mano -->
+            <path d="M44 148 C44 148 38 160 50 168 C62 176 100 182 130 174 C160 166 168 154 162 144 C156 134 140 136 120 138 C100 140 80 142 62 138 C50 136 44 148 44 148Z" fill="#E8C09A"/>
+            <path d="M62 138 C62 138 58 130 65 126 C72 122 80 126 80 126" stroke="#5C2E10" stroke-width="1.5" fill="none"/>
+            <path d="M80 126 C80 126 78 118 86 115 C94 112 100 118 100 118" stroke="#5C2E10" stroke-width="1.5" fill="none"/>
+            <path d="M100 118 C100 118 99 110 107 108 C115 106 120 113 120 113" stroke="#5C2E10" stroke-width="1.5" fill="none"/>
+            <path d="M120 113 C120 113 120 106 127 105 C134 104 138 110 138 110" stroke="#5C2E10" stroke-width="1.5" fill="none"/>
+            <!-- Tallo -->
+            <line x1="100" y1="145" x2="100" y2="60" stroke="#5C2E10" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Hoja izquierda baja -->
+            <path d="M100 120 C90 110 76 108 72 98 C82 94 96 100 100 112Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
+            <!-- Hoja derecha baja -->
+            <path d="M100 112 C110 100 124 96 128 86 C118 82 104 90 100 104Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
+            <!-- Hoja izquierda media -->
+            <path d="M100 96 C88 85 76 80 74 68 C86 65 98 74 100 88Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
+            <!-- Hoja derecha media -->
+            <path d="M100 88 C112 76 124 70 126 58 C114 55 102 66 100 80Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
+            <!-- Brote superior izquierdo -->
+            <path d="M98 72 C92 60 88 50 90 40 C96 44 100 56 98 68Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
+            <!-- Brote superior derecho -->
+            <path d="M102 68 C108 56 112 46 110 36 C104 40 100 52 102 64Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
+            <!-- Brote central -->
+            <path d="M100 64 C96 52 96 40 100 32 C104 40 104 52 100 60Z" fill="#EDD5A3" stroke="#5C2E10" stroke-width="1.2"/>
           </svg>
           <div class="up-content">
             <span class="up-tag">Lifestyle &amp; Home</span>

@@ -419,88 +419,6 @@ html.dark .wa-float-label{background:rgba(28,28,26,.95);color:#EBEBEB;border-col
 }
 .service .btn{width:100%;margin-top:auto}
 
-/* ── PRICE CALCULATOR ── */
-.calc-card{padding:clamp(1.75rem,4vw,2.75rem)}
-.calc-sections{display:grid;grid-template-columns:1.15fr 1fr;gap:2.25rem;align-items:start}
-@media(max-width:720px){.calc-sections{grid-template-columns:1fr}}
-.calc-col-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.8rem}
-.calc-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
-.calc-plan-btn{
-  width:100%;padding:.8rem .65rem;border-radius:12px;
-  border:1.5px solid var(--border);background:transparent;
-  cursor:pointer;text-align:left;transition:all .2s var(--ease);font-family:var(--font);
-}
-.calc-plan-btn:hover{border-color:rgba(79,70,229,.3);background:rgba(79,70,229,.04)}
-.calc-plan-btn.active{border-color:var(--a);background:rgba(79,70,229,.07);box-shadow:0 0 0 1px var(--a)}
-.cpb-tier{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.2rem}
-.cpb-name{font-size:.83rem;font-weight:700;letter-spacing:-.025em;color:var(--ink);line-height:1.3}
-.cpb-price{font-size:.72rem;color:var(--a);font-weight:600;margin-top:.25rem}
-.calc-plan-btn.active .cpb-tier,.calc-plan-btn.active .cpb-price{color:var(--a)}
-.calc-extras-wrap{margin-top:1.5rem}
-.calc-extras{display:flex;flex-direction:column;gap:.4rem;margin-top:.5rem}
-.calc-extra{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.7rem .9rem;border-radius:10px;border:1.5px solid var(--border);
-  cursor:pointer;transition:all .18s var(--ease);user-select:none;gap:.5rem;
-}
-.calc-extra:hover{border-color:rgba(79,70,229,.28);background:rgba(79,70,229,.03)}
-.calc-extra.checked{border-color:rgba(79,70,229,.38);background:rgba(79,70,229,.06)}
-.ce-left{display:flex;align-items:center;gap:.6rem;flex:1;min-width:0}
-.ce-icon{
-  width:28px;height:28px;border-radius:7px;display:flex;align-items:center;
-  justify-content:center;background:rgba(79,70,229,.08);font-size:12px;flex-shrink:0;
-}
-.ce-text{min-width:0}
-.ce-name{font-size:.84rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
-.ce-desc{font-size:.7rem;color:var(--ink3);margin-top:.05rem}
-.ce-right{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
-.ce-price{font-size:.8rem;font-weight:700;color:var(--a);white-space:nowrap}
-.ce-toggle{
-  width:34px;height:19px;border-radius:999px;flex-shrink:0;
-  background:rgba(10,10,10,.12);position:relative;transition:background .2s;
-}
-.ce-toggle::after{
-  content:'';position:absolute;top:2px;left:2px;
-  width:15px;height:15px;border-radius:50%;background:#fff;
-  box-shadow:0 1px 3px rgba(0,0,0,.22);
-  transition:transform .2s var(--ease);
-}
-.calc-extra.checked .ce-toggle{background:linear-gradient(135deg,#4F46E5,#06B6D4)}
-.calc-extra.checked .ce-toggle::after{transform:translateX(15px)}
-.calc-right{display:flex;flex-direction:column;gap:1.1rem;position:sticky;top:5.5rem}
-.calc-price-box{
-  padding:1.65rem 1.5rem;border-radius:16px;
-  background:linear-gradient(145deg,rgba(79,70,229,.065),rgba(6,182,212,.04));
-  border:1px solid rgba(79,70,229,.13);text-align:center;
-}
-.calc-price-lbl{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.8rem}
-.calc-price-main{
-  font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;
-  letter-spacing:-.05em;line-height:1.1;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  transition:opacity .14s ease;min-height:1.2em;
-}
-.calc-price-sub{margin-top:.55rem;font-size:.78rem;color:var(--ink3);min-height:1.1em}
-.calc-maint-tag{
-  display:none;align-items:center;justify-content:center;gap:.45rem;
-  margin-top:.8rem;padding:.4rem .8rem;border-radius:8px;
-  background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);
-  font-size:.75rem;color:var(--ink2);font-weight:600;
-}
-.calc-maint-tag.show{display:flex}
-.calc-maint-dot{width:5px;height:5px;border-radius:50%;background:#06B6D4;flex-shrink:0}
-.calc-disclaimer{font-size:.73rem;color:var(--ink4);line-height:1.55;padding:.65rem .8rem;border-radius:9px;background:rgba(10,10,10,.03);border:1px solid var(--border)}
-.calc-cta-btn{
-  display:flex;align-items:center;justify-content:center;gap:.55rem;
-  padding:.9rem 1.25rem;border-radius:12px;
-  background:#25D366;color:#fff;font-weight:700;font-size:.9rem;
-  border:none;cursor:pointer;font-family:var(--font);
-  text-decoration:none;transition:all .2s var(--ease);letter-spacing:-.02em;
-}
-.calc-cta-btn:hover{background:#1DB954;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.28)}
-.calc-cta-btn svg{flex-shrink:0}
-.calc-cta-note{text-align:center;font-size:.73rem;color:var(--ink4)}
-
 /* FAQ */
 .faq-wrap{padding:0 1.5rem}
 .faq-item{border-bottom:1px solid var(--border)}
@@ -675,16 +593,6 @@ html.dark .service.featured{
 }
 html.dark .service.featured h3{color:var(--ink)}
 html.dark .service-badge{background:rgba(79,70,229,.8);color:#fff}
-html.dark .calc-plan-btn{border-color:rgba(255,255,255,.12)}
-html.dark .calc-plan-btn:hover{border-color:rgba(79,70,229,.4);background:rgba(79,70,229,.06)}
-html.dark .calc-plan-btn.active{background:rgba(79,70,229,.18);box-shadow:0 0 0 1px var(--a)}
-html.dark .calc-extra{border-color:rgba(255,255,255,.1)}
-html.dark .calc-extra:hover{border-color:rgba(79,70,229,.4);background:rgba(79,70,229,.06)}
-html.dark .calc-extra.checked{border-color:rgba(79,70,229,.5);background:rgba(79,70,229,.14)}
-html.dark .ce-toggle{background:rgba(255,255,255,.16)}
-html.dark .calc-price-box{background:rgba(79,70,229,.11);border-color:rgba(79,70,229,.22)}
-html.dark .calc-maint-tag{background:rgba(6,182,212,.12);border-color:rgba(6,182,212,.28)}
-html.dark .calc-disclaimer{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.08)}
 html.dark ::selection{background:rgba(79,70,229,.3);color:#EBEBEB}
 
 /* DARK TOGGLE BUTTON */
@@ -1058,131 +966,6 @@ html.dark .contact-note{color:var(--ink4)}
   </div>
 </section>
 
-<!-- ── PRICE CALCULATOR ── -->
-<section class="section section-gap" id="calculadora">
-  <div class="container">
-    <div class="section-head center reveal">
-      <p class="eyebrow" data-i18n="calc.eyebrow">Calculadora</p>
-      <h2 data-i18n="calc.h2">¿Cuánto cuesta mi web?</h2>
-      <p data-i18n="calc.p">Selecciona lo que necesitas y ve el precio actualizado al instante.</p>
-    </div>
-    <div class="calc-card glass reveal">
-      <div class="calc-sections">
-
-        <!-- LEFT: plan + extras -->
-        <div class="calc-left">
-          <p class="calc-col-label" data-i18n="calc.plan.label">1. Elige tu plan</p>
-          <div class="calc-plans">
-            <button type="button" class="calc-plan-btn active" data-plan="landing" data-base="200">
-              <p class="cpb-tier" data-i18n="calc.p1.tier">Landing</p>
-              <p class="cpb-name" data-i18n="calc.p1.name">Una página que vende</p>
-              <p class="cpb-price" data-i18n="calc.p1.price">Desde $200</p>
-            </button>
-            <button type="button" class="calc-plan-btn" data-plan="site" data-base="450">
-              <p class="cpb-tier" data-i18n="calc.p2.tier">Sitio completo</p>
-              <p class="cpb-name" data-i18n="calc.p2.name">Tu web profesional</p>
-              <p class="cpb-price" data-i18n="calc.p2.price">Desde $450</p>
-            </button>
-            <button type="button" class="calc-plan-btn" data-plan="custom" data-base="0">
-              <p class="cpb-tier" data-i18n="calc.p3.tier">A medida</p>
-              <p class="cpb-name" data-i18n="calc.p3.name">Proyecto especial</p>
-              <p class="cpb-price" data-i18n="calc.p3.price">Cotización</p>
-            </button>
-          </div>
-
-          <div class="calc-extras-wrap">
-            <p class="calc-col-label" data-i18n="calc.extras.label">2. Extras opcionales</p>
-            <div class="calc-extras">
-              <div class="calc-extra" data-extra="copy" data-price="80">
-                <div class="ce-left">
-                  <div class="ce-icon">✍️</div>
-                  <div class="ce-text">
-                    <p class="ce-name" data-i18n="calc.e.copy">Copywriting incluido</p>
-                    <p class="ce-desc" data-i18n="calc.e.copy.d">Textos listos para publicar</p>
-                  </div>
-                </div>
-                <div class="ce-right"><span class="ce-price">+$80</span><div class="ce-toggle"></div></div>
-              </div>
-              <div class="calc-extra" data-extra="logo" data-price="100">
-                <div class="ce-left">
-                  <div class="ce-icon">🎨</div>
-                  <div class="ce-text">
-                    <p class="ce-name" data-i18n="calc.e.logo">Logo o identidad básica</p>
-                    <p class="ce-desc" data-i18n="calc.e.logo.d">Marca lista para usar</p>
-                  </div>
-                </div>
-                <div class="ce-right"><span class="ce-price">+$100</span><div class="ce-toggle"></div></div>
-              </div>
-              <div class="calc-extra" data-extra="blog" data-price="60">
-                <div class="ce-left">
-                  <div class="ce-icon">📝</div>
-                  <div class="ce-text">
-                    <p class="ce-name" data-i18n="calc.e.blog">Blog / artículos</p>
-                    <p class="ce-desc" data-i18n="calc.e.blog.d">Sección de contenido editable</p>
-                  </div>
-                </div>
-                <div class="ce-right"><span class="ce-price">+$60</span><div class="ce-toggle"></div></div>
-              </div>
-              <div class="calc-extra" data-extra="form" data-price="70">
-                <div class="ce-left">
-                  <div class="ce-icon">⚙️</div>
-                  <div class="ce-text">
-                    <p class="ce-name" data-i18n="calc.e.form">Formulario avanzado o integración</p>
-                    <p class="ce-desc" data-i18n="calc.e.form.d">CRM, calendario, pago, etc.</p>
-                  </div>
-                </div>
-                <div class="ce-right"><span class="ce-price">+$70</span><div class="ce-toggle"></div></div>
-              </div>
-              <div class="calc-extra" data-extra="seo" data-price="50">
-                <div class="ce-left">
-                  <div class="ce-icon">🔍</div>
-                  <div class="ce-text">
-                    <p class="ce-name" data-i18n="calc.e.seo">Optimización SEO avanzada</p>
-                    <p class="ce-desc" data-i18n="calc.e.seo.d">Estructura + meta + velocidad</p>
-                  </div>
-                </div>
-                <div class="ce-right"><span class="ce-price">+$50</span><div class="ce-toggle"></div></div>
-              </div>
-              <div class="calc-extra" data-extra="maint" data-price="40">
-                <div class="ce-left">
-                  <div class="ce-icon">🛡️</div>
-                  <div class="ce-text">
-                    <p class="ce-name" data-i18n="calc.e.maint">Mantenimiento mensual</p>
-                    <p class="ce-desc" data-i18n="calc.e.maint.d">Actualizaciones y soporte</p>
-                  </div>
-                </div>
-                <div class="ce-right"><span class="ce-price" data-i18n="calc.e.maint.p">+$40/mes</span><div class="ce-toggle"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: price + CTA -->
-        <div class="calc-right">
-          <div class="calc-price-box">
-            <p class="calc-price-lbl" data-i18n="calc.price.lbl">Estimado para tu proyecto</p>
-            <div id="calcPriceMain" class="calc-price-main">Desde $200</div>
-            <p id="calcPriceSub" class="calc-price-sub" data-i18n="calc.price.sub.base">Precio base · sin extras</p>
-            <div class="calc-maint-tag" id="calcMaint">
-              <span class="calc-maint-dot"></span>
-              <span id="calcMaintText" data-i18n="calc.maint.tag">+ $40/mes mantenimiento</span>
-            </div>
-          </div>
-
-          <p class="calc-disclaimer" data-i18n="calc.disclaimer">El precio exacto se confirma tras una breve conversación. Sin sorpresas ni letra pequeña.</p>
-
-          <a href="https://wa.me/50661130913?text=Hola%2C%20quiero%20información%20sobre%20un%20sitio%20web" class="calc-cta-btn" id="calcCtaBtn" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span data-i18n="calc.cta">Quiero este plan → WhatsApp</span>
-          </a>
-          <p class="calc-cta-note" data-i18n="calc.cta.note">Sin compromiso · respondemos en menos de 24 h</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section-gap" id="proceso">
   <div class="container">
     <div class="section-head center reveal">
@@ -1401,29 +1184,6 @@ const i18n={
     'form.sending':'Enviando…',
     'form.ok':'¡Mensaje enviado! Te respondemos pronto.',
     'form.err':'Hubo un error. Escríbenos por WhatsApp.',
-    'calc.eyebrow':'Calculadora',
-    'calc.h2':'¿Cuánto cuesta mi web?',
-    'calc.p':'Selecciona lo que necesitas y ve el precio actualizado al instante.',
-    'calc.plan.label':'1. Elige tu plan',
-    'calc.p1.tier':'Landing','calc.p1.name':'Una página que vende','calc.p1.price':'Desde $200',
-    'calc.p2.tier':'Sitio completo','calc.p2.name':'Tu web profesional','calc.p2.price':'Desde $450',
-    'calc.p3.tier':'A medida','calc.p3.name':'Proyecto especial','calc.p3.price':'Cotización',
-    'calc.extras.label':'2. Extras opcionales',
-    'calc.e.copy':'Copywriting incluido','calc.e.copy.d':'Textos listos para publicar',
-    'calc.e.logo':'Logo o identidad básica','calc.e.logo.d':'Marca lista para usar',
-    'calc.e.blog':'Blog / artículos','calc.e.blog.d':'Sección de contenido editable',
-    'calc.e.form':'Formulario avanzado o integración','calc.e.form.d':'CRM, calendario, pago, etc.',
-    'calc.e.seo':'Optimización SEO avanzada','calc.e.seo.d':'Estructura + meta + velocidad',
-    'calc.e.maint':'Mantenimiento mensual','calc.e.maint.d':'Actualizaciones y soporte','calc.e.maint.p':'+$40/mes',
-    'calc.price.lbl':'Estimado para tu proyecto',
-    'calc.price.sub.base':'Precio base · sin extras',
-    'calc.price.sub.extras':'Total estimado · sujeto al alcance final',
-    'calc.price.custom':'Conversemos',
-    'calc.price.sub.custom':'Cotización a medida según tu proyecto',
-    'calc.maint.tag':'+ $40/mes mantenimiento',
-    'calc.disclaimer':'El precio exacto se confirma tras una breve conversación. Sin sorpresas ni letra pequeña.',
-    'calc.cta':'Quiero este plan → WhatsApp',
-    'calc.cta.note':'Sin compromiso · respondemos en menos de 24 h',
   },
   en:{
     'nav.portfolio':'Portfolio','nav.services':'Services','nav.process':'Process','nav.faq':'FAQ','nav.cta':"Let's talk",'nav.contact':'Contact',
@@ -1498,29 +1258,6 @@ const i18n={
     'form.sending':'Sending…',
     'form.ok':'Message sent! We\'ll get back to you soon.',
     'form.err':'Something went wrong. Write to us on WhatsApp.',
-    'calc.eyebrow':'Calculator',
-    'calc.h2':'How much does my website cost?',
-    'calc.p':'Select what you need and see the price update in real time.',
-    'calc.plan.label':'1. Choose your plan',
-    'calc.p1.tier':'Landing','calc.p1.name':'A page that sells','calc.p1.price':'From $200',
-    'calc.p2.tier':'Full site','calc.p2.name':'Your professional web','calc.p2.price':'From $450',
-    'calc.p3.tier':'Custom','calc.p3.name':'Special project','calc.p3.price':'Quote',
-    'calc.extras.label':'2. Optional add-ons',
-    'calc.e.copy':'Copywriting included','calc.e.copy.d':'Ready-to-publish content',
-    'calc.e.logo':'Logo or basic identity','calc.e.logo.d':'Brand ready to use',
-    'calc.e.blog':'Blog / articles','calc.e.blog.d':'Editable content section',
-    'calc.e.form':'Advanced form or integration','calc.e.form.d':'CRM, calendar, payment, etc.',
-    'calc.e.seo':'Advanced SEO optimization','calc.e.seo.d':'Structure + meta + speed',
-    'calc.e.maint':'Monthly maintenance','calc.e.maint.d':'Updates and support','calc.e.maint.p':'+$40/mo',
-    'calc.price.lbl':'Estimated for your project',
-    'calc.price.sub.base':'Base price · no add-ons',
-    'calc.price.sub.extras':'Estimated total · subject to final scope',
-    'calc.price.custom':"Let's talk",
-    'calc.price.sub.custom':'Custom quote based on your project',
-    'calc.maint.tag':'+ $40/mo maintenance',
-    'calc.disclaimer':'The exact price is confirmed after a brief conversation. No surprises, no fine print.',
-    'calc.cta':'I want this plan → WhatsApp',
-    'calc.cta.note':'No commitment · reply within 24 h',
   }
 };
 
@@ -1555,8 +1292,6 @@ function applyLang(lang){
   });
   // Update html lang attribute
   document.documentElement.lang=lang;
-  // Refresh calculator price text
-  if(window.calcRefresh)window.calcRefresh();
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn=>{
@@ -1688,119 +1423,6 @@ const cObs=new IntersectionObserver(entries=>{
   });
 },{threshold:.6});
 document.querySelectorAll('.trust-pill').forEach(p=>cObs.observe(p));
-
-// ── PRICE CALCULATOR ──
-(function(){
-  const EXTRA_PRICES={copy:80,logo:100,blog:60,form:70,seo:50,maint:40};
-  let activePlan='landing';
-  let activeBase=200;
-  const checked=new Set();
-
-  const priceEl=document.getElementById('calcPriceMain');
-  const subEl=document.getElementById('calcPriceSub');
-  const maintTag=document.getElementById('calcMaint');
-  const maintText=document.getElementById('calcMaintText');
-  const ctaBtn=document.getElementById('calcCtaBtn');
-
-  function fade(fn){
-    priceEl.style.opacity='0';
-    setTimeout(()=>{fn();priceEl.style.opacity='1';},130);
-  }
-
-  function buildWAMsg(total,hasExtras,hasMaint,isCustom){
-    const t=i18n[currentLang];
-    const planNames={
-      landing:{es:'Landing ($200)',en:'Landing ($200)'},
-      site:{es:'Sitio completo ($450)',en:'Full site ($450)'},
-      custom:{es:'Proyecto a medida',en:'Custom project'}
-    };
-    const extraNames={
-      copy:{es:'Copywriting (+$80)',en:'Copywriting (+$80)'},
-      logo:{es:'Logo/identidad (+$100)',en:'Logo/identity (+$100)'},
-      blog:{es:'Blog (+$60)',en:'Blog (+$60)'},
-      form:{es:'Formulario avanzado (+$70)',en:'Advanced form (+$70)'},
-      seo:{es:'SEO avanzado (+$50)',en:'Advanced SEO (+$50)'},
-      maint:{es:'Mantenimiento mensual (+$40/mes)',en:'Monthly maintenance (+$40/mo)'}
-    };
-    const lang=currentLang==='en'?'en':'es';
-    const plan=planNames[activePlan][lang];
-    const extras=[...checked].map(e=>extraNames[e]?.[lang]).filter(Boolean).join(', ');
-    if(isCustom){
-      return lang==='en'
-        ?"Hi! I'm interested in a custom website project. I'd like to know more!"
-        :'¡Hola! Me interesa un proyecto web a medida. ¡Me gustaría saber más!';
-    }
-    const priceStr='$'+total+(hasMaint?' + $40/'+(lang==='en'?'mo':'mes')+' maint.':'');
-    return lang==='en'
-      ?`Hi! I used the price calculator on your website.\n\nPlan: ${plan}${extras?'\nAdd-ons: '+extras:''}\nEstimated: ${priceStr}\n\nI'd like to get started!`
-      :`¡Hola! Usé la calculadora de precio en tu sitio.\n\nPlan: ${plan}${extras?'\nExtras: '+extras:''}\nEstimado: ${priceStr}\n\n¡Me gustaría empezar!`;
-  }
-
-  function update(){
-    const t=i18n[currentLang];
-    const isCustom=activePlan==='custom';
-    const hasMaint=checked.has('maint');
-
-    if(isCustom){
-      fade(()=>{priceEl.textContent=t['calc.price.custom']||'Conversemos';});
-      subEl.textContent=t['calc.price.sub.custom']||'Cotización a medida';
-      maintTag.classList.remove('show');
-      ctaBtn.href='https://wa.me/50661130913?text='+encodeURIComponent(buildWAMsg(0,false,false,true));
-      return;
-    }
-
-    let extras=0;
-    checked.forEach(e=>{if(e!=='maint')extras+=EXTRA_PRICES[e]||0;});
-    const total=activeBase+extras;
-    const hasExtras=extras>0;
-
-    fade(()=>{
-      if(hasExtras){
-        const hi=total+Math.ceil(total*.1/10)*10;
-        priceEl.textContent='$'+total+' – $'+hi;
-      } else {
-        priceEl.textContent=(t['calc.p'+(activePlan==='landing'?'1':'2')+'.price']||('$'+total));
-      }
-    });
-
-    subEl.textContent=hasExtras
-      ?(t['calc.price.sub.extras']||'Total estimado · sujeto al alcance final')
-      :(t['calc.price.sub.base']||'Precio base · sin extras');
-
-    if(hasMaint){
-      maintTag.classList.add('show');
-      if(maintText)maintText.textContent=t['calc.maint.tag']||'+ $40/mes mantenimiento';
-    } else {
-      maintTag.classList.remove('show');
-    }
-
-    ctaBtn.href='https://wa.me/50661130913?text='+encodeURIComponent(buildWAMsg(total,hasExtras,hasMaint,false));
-  }
-
-  // Plan buttons
-  document.querySelectorAll('.calc-plan-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      document.querySelectorAll('.calc-plan-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      activePlan=btn.dataset.plan;
-      activeBase=+(btn.dataset.base)||0;
-      update();
-    });
-  });
-
-  // Extra toggles
-  document.querySelectorAll('.calc-extra').forEach(el=>{
-    el.addEventListener('click',()=>{
-      const key=el.dataset.extra;
-      if(checked.has(key)){checked.delete(key);el.classList.remove('checked');}
-      else{checked.add(key);el.classList.add('checked');}
-      update();
-    });
-  });
-
-  window.calcRefresh=update;
-  update();
-})();
 
 // CONTACT FORM
 const contactForm=document.getElementById('contactForm');
